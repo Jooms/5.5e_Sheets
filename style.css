@@ -1,0 +1,284 @@
+/* ============================================================================
+   5e Character Sheet — shared COMPONENT LIBRARY (box-model edition)
+   ----------------------------------------------------------------------------
+   The primitives every page is built from: .section / .tab / .box / .lbl /
+   .cbx / .ring / .emblem / .lined. index.html links this file first, so editing
+   a primitive here updates every section on every sheet — "define once, reuse".
+
+   sheet.css (linked after this file) supplies the SECTION PALETTES
+   (.sec-* { --panel / --tab }) and SECTION CONTENT (per-section layout);
+   index.html holds only markup. This file themes nothing page-specific; it
+   only defines the reusable shapes.
+   ========================================================================== */
+
+:root {
+  --ink: #1a1a1a;
+  /* hairline / text */
+  --field: #fff;
+  /* writable boxes  */
+  --lbl: #3a3a3a;
+  /* printed labels  */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: #5a5a5a;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* the stacked sheet */
+.page {
+  width: 594px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* a titled panel: rotated tab on the left, content column on the right.
+   --panel tints the interior; --tab (optional) colors just the tab strip. */
+.section {
+  background: var(--panel, #fff);
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  display: flex;
+}
+
+.section>.tab {
+  position: relative;
+  flex: 0 0 29px;
+  background: var(--tab, transparent);
+}
+
+.section>.tab span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+
+.section>.body {
+  flex: 1;
+  padding: 5px 5px 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* layout helpers */
+.row {
+  display: flex;
+  gap: 5px;
+}
+
+.grow {
+  flex: 1;
+}
+
+/* the universal field box: white area + ink border + a small corner label */
+.box {
+  background: var(--field);
+  border: 1px solid var(--ink);
+  padding: 3px 4px;
+  position: relative;
+  min-height: 26px;
+  display: flex;
+}
+
+.box>.lbl {
+  font-size: 6.5px;
+  color: var(--lbl);
+  line-height: 1;
+}
+
+.lbl.big {
+  font-size: 11px;
+  align-self: center;
+  margin: auto;
+}
+
+.lbl.right {
+  margin-left: auto;
+}
+
+.lbl.center {
+  margin: 0 auto;
+}
+
+/* checkbox square */
+.cbx {
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  background: var(--field);
+  border: 1px solid var(--ink);
+}
+
+/* circled ring (proficient / advantage markers) */
+.ring {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* large emblem placeholder (axe, AC shield, …) */
+.emblem {
+  border: 1px dashed #9a9a9a;
+  background: rgba(255, 255, 255, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  font-size: 9px;
+  line-height: 1.3;
+}
+
+/* ruled write-in area: a box whose interior is a stack of underlined rows
+   (Attuned rows, Feats lines, custom-equipment columns). */
+.lined {
+  flex-direction: column;
+  padding: 0;
+}
+
+.lined>.ln {
+  flex: 1;
+  min-height: 18px;
+  border-bottom: 1px solid var(--ink);
+  display: flex;
+  align-items: flex-start;
+  padding: 2px 4px 0;
+}
+
+.lined>.ln:last-child {
+  border-bottom: 0;
+}
+
+.lined>.ln>.lbl {
+  font-size: 6.5px;
+  color: var(--lbl);
+}
+
+/* ============================================================================
+   SPELLCASTER COMPONENTS — Cantrips & Spells Known (shared by every caster)
+   ----------------------------------------------------------------------------
+   A spell table is two side-by-side columns (.sp-cols > .sp-col); each column
+   is a label strip (.sp-head) over a stack of spell entries (.sp-row). A row's
+   child <span>s are its fields, divided by vertical ink rules; field widths
+   come from .f-* modifiers shared by the header and the rows so the two line
+   up. The same primitive serves Cantrips (cast|name|save|dmg) and Spells Known
+   (cast|lvl|spell|save|dmg|tag). .slotgrid is the 1–9 spell-slot table at the
+   top of Spells Known. Tint per class via --panel (e.g. .sec-cantrips).
+   ========================================================================== */
+.sp-cols {
+  flex: 1;
+  display: flex;
+  gap: 6px;
+}
+
+.sp-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sp-head {
+  display: flex;
+  padding: 0 0 1px;
+}
+
+.sp-head>span {
+  font-size: 6.5px;
+  color: var(--lbl);
+  text-align: center;
+}
+
+.sp-row {
+  display: flex;
+  align-items: stretch;
+  min-height: 26px;
+  background: var(--field);
+  border: 1px solid var(--ink);
+}
+
+.sp-row>span {
+  border-left: 1px solid var(--ink);
+}
+
+.sp-row>span:first-child {
+  border-left: 0;
+}
+
+/* shared field widths — used by both .sp-head labels and .sp-row cells */
+.f-cast {
+  flex: 0 0 24px;
+}
+
+.f-lvl {
+  flex: 0 0 16px;
+}
+
+.f-name {
+  flex: 1;
+}
+
+.f-spell {
+  flex: 1;
+}
+
+.f-save {
+  flex: 0 0 26px;
+}
+
+.f-dmg {
+  flex: 0 0 34px;
+}
+
+/* the little notch box at the top-right corner of each Spells-Known row */
+.f-tag {
+  flex: 0 0 13px;
+  align-self: flex-start;
+  height: 11px;
+  border-bottom: 1px solid var(--ink);
+}
+
+/* spell-slot table at the top of Spells Known: 3×3 "level + circles" cells */
+.slotgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--field);
+  border: 1px solid var(--ink);
+}
+
+.slotgrid .slot {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  padding: 0 3px;
+  border: 1px solid var(--ink);
+}
+
+.slotgrid .slot .n {
+  font-weight: 600;
+}
+
+.slotgrid .slot .c {
+  flex: 1;
+  text-align: center;
+  letter-spacing: 1px;
+}

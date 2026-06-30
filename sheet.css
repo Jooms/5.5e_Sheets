@@ -1,0 +1,3006 @@
+/* ============================================================================
+   5e Character Sheet — PER-SHEET STYLES (box-model edition)
+   ----------------------------------------------------------------------------
+   Each area is composed from normal-flow divs/spans: every box outline is a CSS
+   border, every gap is padding/margin/gap, and the section tint shows through
+   the gaps. The reusable primitives live in style.css (linked before this file
+   in index.html); this file supplies everything page-specific:
+
+    SECTION PALETTES   — one tint per section (.sec-* { --panel / --tab }).
+    SECTION CONTENT    — per-section layout, namespaced under .sec-NAME.
+
+   Reading order: the shared page-1 sections (Character, Vitals, Gear, Skills)
+   and page-2 sections (Money, Equipment, Attuned, Feats, Background) plus the
+   spellcaster commons (Cantrips, Spells Known) appear once and apply to every
+   class. The rest is grouped one CLASS PANEL at a time — Barbarian, Bard,
+   Cleric, Druid, Fighter, Monk, Paladin, Rogue, Sorcerer, Warlock, Wizard —
+   each block scoped to its own .sec-NAME so classes can't interfere. To find a
+   class's styles, search for its banner (e.g. "PALADIN SHEET").
+   ========================================================================== */
+
+/* === SECTION PALETTES =================================================== */
+.sec-character {
+  --panel: #ebf1de;
+}
+
+.sec-barbarian {
+  --panel: #ddd9c4;
+}
+
+.sec-vitals {
+  --panel: #f2dcdb;
+}
+
+.sec-skills {
+  --panel: #dce6f1;
+}
+
+.sec-gear {
+  --panel: #ffffff;
+}
+
+/* gear is untinted */
+
+/* === SECTION CONTENT ===================================================== */
+
+/* ---- Barbarian: header inputs ------------------------------------------- */
+.sec-barbarian .r1 .primal {
+  flex: 0 0 187px;
+}
+
+.sec-barbarian .r1 .home {
+  flex: 1;
+}
+
+.sec-barbarian .r1 .ragebonus {
+  flex: 0 0 57px;
+}
+
+.sec-barbarian .r1 .level {
+  flex: 0 0 58px;
+}
+
+/* ---- Barbarian: feature checklist + rages ------------------------------- */
+.sec-barbarian .r2 {
+  align-items: stretch;
+}
+
+.sec-barbarian .features {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0;
+  row-gap: 5px;
+  align-content: center;
+}
+
+.sec-barbarian .feat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 7px;
+}
+
+.sec-barbarian .rages {
+  flex: 0 0 120px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding-top: 3px;
+}
+
+.sec-barbarian .rages .circles {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ---- Barbarian: five labeled boxes -------------------------------------- */
+.sec-barbarian .r3 .box {
+  flex: 1;
+}
+
+.sec-barbarian .r3 .totem {
+  flex: 0 0 182px;
+}
+
+/* ---- Barbarian: bottom grid (rows 4 + 5) -------------------------------- */
+.sec-barbarian .r4 {
+  align-items: stretch;
+}
+
+.sec-barbarian .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-barbarian .colA .box {
+  flex: 1;
+}
+
+.sec-barbarian .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-barbarian .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-barbarian .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-barbarian .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-barbarian .recharge .hdr,
+.sec-barbarian .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-barbarian .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-barbarian .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-barbarian .colD .wide {
+  flex: 1;
+}
+
+.sec-barbarian .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-barbarian .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-barbarian .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-barbarian .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ---- Character ---------------------------------------------------------- */
+.sec-character .body {
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+.sec-character .axe {
+  flex: 0 0 100px;
+  align-self: stretch;
+}
+
+.sec-character .char-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-character .r1 .name {
+  flex: 1;
+}
+
+.sec-character .r1 .align {
+  flex: 0 0 80px;
+}
+
+.sec-character .r1 .xp {
+  flex: 0 0 150px;
+}
+
+.sec-character .char-mid {
+  align-items: stretch;
+}
+
+.sec-character .emblem.axe {
+  border-style: solid;
+  background: #fff;
+}
+
+.sec-character .char-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-character .char-right {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-character .mvmt-lvls {
+  flex: 1;
+}
+
+.sec-character .stats .box {
+  flex: 1;
+}
+
+.sec-character .langs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 2px;
+}
+
+.sec-character .insp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 8px;
+}
+
+.sec-character .langgroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.sec-character .langhdr {
+  flex: 0 0 30px;
+  font-size: 6.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 1px;
+}
+
+.sec-character .langgrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 2px;
+  row-gap: 3px;
+}
+
+.sec-character .lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 6.5px;
+}
+
+.sec-character .movement,
+.sec-character .levels {
+  flex: 0 0 42px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding-bottom: 6px;
+}
+
+/* ---- Vitals ------------------------------------------------------------- */
+.sec-vitals .vit-top {
+  align-items: stretch;
+}
+
+.sec-vitals .maxhp {
+  flex: 1.2;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.sec-vitals .hitdice {
+  flex: 2;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3px;
+  padding-top: 4px;
+}
+
+.sec-vitals .hitdice .hd-body {
+  flex: 1;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.sec-vitals .hd-field {
+  flex: 1;
+  flex-direction: column;
+}
+
+.sec-vitals .hd-type {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 2px 2px 0;
+}
+
+.sec-vitals .hd-typelbl {
+  font-size: 7px;
+  color: var(--lbl);
+}
+
+.sec-vitals .hd-head .lbl {
+  font-size: 6.5px;
+  color: var(--lbl);
+  line-height: 1;
+}
+
+.sec-vitals .hd-circle {
+  margin-left: auto;
+}
+
+.sec-vitals .hd-opts {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-items: flex-start;
+}
+
+.sec-vitals .die {
+  font-size: 7px;
+  line-height: 1.15;
+}
+
+.sec-vitals .death {
+  flex: 0 0 46px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 2px;
+  font-size: 8px;
+}
+
+.sec-vitals .potions {
+  flex: 1.6;
+  position: relative;
+  display: flex;
+}
+
+.sec-vitals .potgrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.sec-vitals .potgrid .box {
+  border: 0;
+  min-height: 0;
+  position: relative;
+}
+
+.sec-vitals .potrow {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  display: flex;
+  gap: 4px;
+}
+
+.sec-vitals .potrow .lbl {
+  font-size: 5.5px;
+}
+
+.sec-vitals .potrow .amt {
+  margin-left: auto;
+  font-style: italic;
+}
+
+.sec-vitals .potgrid .box:nth-child(1) .potrow,
+.sec-vitals .potgrid .box:nth-child(2) .potrow {
+  top: 2px;
+}
+
+.sec-vitals .potgrid .box:nth-child(3) .potrow,
+.sec-vitals .potgrid .box:nth-child(4) .potrow {
+  bottom: 2px;
+}
+
+.sec-vitals .potlabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--field);
+  border: 1px solid var(--ink);
+  padding: 2px 4px;
+  font-size: 6.5px;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.sec-vitals .chp {
+  flex: 0 0 70px;
+}
+
+.sec-vitals .temp {
+  flex: 0 0 44px;
+}
+
+.sec-vitals .vit-cond {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 4px;
+  padding: 2px 0;
+}
+
+.sec-vitals .cond-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sec-vitals .condrow {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sec-vitals .cond {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 7px;
+}
+
+.sec-vitals .exh {
+  flex: 0 0 150px;
+}
+
+/* ---- Gear --------------------------------------------------------------- */
+.sec-gear .body {
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+}
+
+.sec-gear .gear-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-gear .ammo {
+  align-items: center;
+}
+
+.sec-gear .ammo .content {
+  flex: 1;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-align: justify;
+  text-align-last: justify;
+}
+
+.sec-gear .wrow {
+  flex: 1;
+  gap: 0;
+  background: var(--field);
+  border: 1px solid var(--ink);
+}
+
+.sec-gear .wrow .box {
+  min-height: 30px;
+  border: 0;
+  border-left: 1px dashed #aaa;
+  background: transparent;
+}
+
+.sec-gear .wrow .box:first-child {
+  border-left: 0;
+}
+
+.sec-gear .wrow .weapon {
+  flex: 1;
+}
+
+.sec-gear .wrow .tohit {
+  flex: 0 0 80px;
+}
+
+.sec-gear .wrow .props {
+  flex: 0 0 130px;
+}
+
+.sec-gear .wrow .dmg {
+  flex: 0 0 60px;
+}
+
+.sec-gear .gear-right {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-gear .acrow {
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.sec-gear .acrow .acl {
+  font-size: 11px;
+  color: var(--ink);
+}
+
+.sec-gear .armor {
+  flex: 1;
+}
+
+/* ---- Skills ------------------------------------------------------------- */
+.sec-skills .sk-abilities {
+  align-items: stretch;
+}
+
+.sec-skills .abil {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-skills .abil-bot {
+  border: 1px dashed var(--ink);
+  border-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 3px 2px;
+}
+
+.sec-skills .abil .lbl {
+  margin: 2px;
+}
+
+.sec-skills .abil-top {
+  flex: 1;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.sec-skills .abil-top>.lbl {
+  font-weight: bold;
+}
+
+
+.sec-skills .mini {
+  flex: 0 0 28px;
+  align-self: stretch;
+  border-left: 1px dashed var(--ink);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1px;
+}
+
+.sec-skills .mini .lbl {
+  font-size: 5px;
+  margin: 0;
+}
+
+.sec-skills .sk-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 4.5px;
+  white-space: nowrap;
+}
+
+.sec-skills .sk-adv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 5px;
+}
+
+.sec-skills .pp,
+.sec-skills .pb,
+.sec-skills .ib {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sec-skills .pp .lbl,
+.sec-skills .pb .lbl,
+.sec-skills .ib .lbl {
+  text-align: center;
+}
+
+.sec-skills .sk-grid {
+  display: flex;
+  gap: 5px;
+}
+
+.sec-skills .sk-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-skills .skill {
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+}
+
+.sec-skills .skill .mod {
+  flex: 0 0 30px;
+  border-right: 1px solid var(--ink);
+}
+
+.sec-skills .skill .name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 7.5px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sec-skills .skill .name .ori {
+  font-size: 5.5px;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+.sec-skills .skill .cbx {
+  align-self: flex-end;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* the right block spans skill columns 4 + 5: a top row (col-4 skills +
+   tools/kit strip) over two full-width "Skill Feature" boxes. The 100px
+   basis (95px tk strip + 5px inner gap) keeps the col-4 skills the same
+   width as columns 1-3. */
+.sec-skills .sk-rightblock {
+  flex: 1 1 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-skills .sk-rb-top {
+  display: flex;
+  gap: 5px;
+}
+
+.sec-skills .sk-rb-top .sk-col {
+  flex: 1;
+}
+
+.sec-skills .sk-tk {
+  flex: 0 0 95px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-skills .sk-tk .tk {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.sec-skills .sk-tk .tk .lbl {
+  font-size: 5.5px;
+}
+
+.sec-skills .skfeat {
+  flex: 1;
+}
+
+/* ========================================================================== */
+/* PAGE 2 (back of sheet) — also part of the Barbarian sheet.                  */
+/* Palettes sampled from Master.pdf p2: white panels, colored tab strips only. */
+/* ========================================================================== */
+.sec-money {
+  --tab: #ccff99;
+  background-color: #cf9;
+  border: 2px solid #9bbb59;
+}
+
+.sec-equipment {
+  --tab: #d8e4bc;
+  background-color: #d8e4bc;
+  border: 2px solid #9bbb59;
+}
+
+.sec-attuned {
+  --tab: #daeef3;
+  background-color: #daeef3;
+  border: 2px solid #4f81bd;
+}
+
+.sec-feats {
+  --tab: #fde9d9;
+  background-color: #fde9d9;
+  border: 2px solid #e36c0a;
+}
+
+.sec-background {
+  --tab: #f2f2f2;
+  background-color: #f2f2f2;
+  border: 2px solid #808080;
+}
+
+/* ---- Money -------------------------------------------------------------- */
+.sec-money .coins .box {
+  flex: 1;
+  min-height: 30px;
+}
+
+.sec-money .gems {
+  background: var(--tab);
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.sec-money .gems .box {
+  flex: 1;
+  min-height: 34px;
+}
+
+.sec-money .gems .lbl {
+  font-size: 6px;
+}
+
+.sec-money .art {
+  min-height: 72px;
+}
+
+/* ---- Equipment ---------------------------------------------------------- */
+.sec-equipment .equip-body {
+  flex-direction: row;
+  gap: 5px;
+}
+
+.sec-equipment .equip-cols {
+  flex: 2.3;
+  display: flex;
+  gap: 4px;
+}
+
+.sec-equipment .eq-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sec-equipment .eq {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  font-size: 6px;
+  line-height: 1;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.sec-equipment .eq .nm {
+  display: flex;
+  align-items: center;
+  padding: 1.5px 4px;
+}
+
+.sec-equipment .qty {
+  flex: 0 0 12px;
+  height: 12px;
+  border: 1px solid var(--ink);
+  background: var(--field);
+}
+
+.sec-equipment .eq-containers {
+  margin-top: auto;
+  background: var(--tab);
+}
+
+.sec-equipment .equip-write {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  gap: 8px;
+  padding-top: 1px;
+  background: var(--field);
+}
+
+.sec-equipment .equip-write .lined {
+  flex: 1;
+  display: flex;
+}
+
+.sec-equipment .equip-write .ln {
+  min-height: 0;
+}
+
+.sec-equipment .equip-write .ln:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ---- Attuned ------------------------------------------------------------ */
+.sec-attuned .att {
+  flex-direction: column;
+  padding: 0;
+  flex: 1;
+  position: relative;
+}
+
+.sec-attuned .att-head {
+  display: flex;
+  padding: 3px 4px 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.sec-attuned .att-head .lbl {
+  font-size: 6.5px;
+  color: var(--lbl);
+}
+
+.sec-attuned .att-head .item {
+  flex: 0 0 160px;
+}
+
+.sec-attuned .att-head .charges {
+  flex: 0 0 60px;
+}
+
+.sec-attuned .att-head .rechg {
+  flex: 0 0 82px;
+}
+
+.sec-attuned .att-rows {
+  flex: 1;
+}
+
+.sec-attuned .att-rows .ln {
+  min-height: 24px;
+}
+
+/* ---- Feats -------------------------------------------------------------- */
+.sec-feats .feat-cols {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+  background-color: white;
+}
+
+.sec-feats .feat-cols .lined {
+  flex: 1;
+}
+
+.sec-feats .feat-cols .ln {
+  min-height: 22px;
+}
+
+.sec-feats .feat-cols .ln:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+/* ---- Background --------------------------------------------------------- */
+.sec-background .bg-body {
+  flex-direction: row;
+  gap: 5px;
+}
+
+.sec-background .bg-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-background .bg-left>.box {
+  flex: 1;
+}
+
+.sec-background .bg-toprow {
+  gap: 5px;
+}
+
+.sec-background .bg-toprow .bgbox {
+  flex: 1;
+}
+
+.sec-background .bg-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-background .bg-rtop {
+  flex: 3;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-background .bg-rtop .allies {
+  flex: 4;
+}
+
+.sec-background .faction {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sec-background .flaw {
+  flex: 1;
+}
+
+/* ========================================================================== */
+/* BARD SHEET — pages 3–5. Page 3 reuses the shared sections (Character/Vitals/ */
+/* Gear/Skills) with a Bard class panel; page 4 reuses the page-2 blocks; page  */
+/* 5 adds the spellcaster sections Cantrips + Spells Known (primitives live in  */
+/* style.css). Tints sampled from Master.pdf p3/p5.                            */
+/* ========================================================================== */
+.sec-bard {
+  --panel: #ddd9c4;
+}
+
+/* tan, like Barbarian */
+.sec-cantrips {
+  --panel: #daeef3;
+  border: 2px solid var(--ink);
+}
+
+.sec-spells {
+  --panel: #daeef3;
+  border: 2px solid var(--ink);
+}
+
+/* ---- Bard: header inputs ------------------------------------------------ */
+.sec-bard .r1 .college {
+  flex: 1;
+}
+
+.sec-bard .r1 .instruments {
+  flex: 1;
+}
+
+.sec-bard .r1 .inspdie {
+  flex: 0 0 80px;
+}
+
+.sec-bard .r1 .level {
+  flex: 0 0 58px;
+}
+
+/* ---- Bard: feature checklist + bardic inspiration ----------------------- */
+.sec-bard .r2 {
+  align-items: stretch;
+}
+
+.sec-bard .features {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0;
+  row-gap: 5px;
+  align-content: center;
+}
+
+.sec-bard .feat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+}
+
+.sec-bard .bardinsp {
+  flex: 0 0 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.sec-bard .bardinsp .circles {
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+/* ---- Bard: song of rest / attacks --------------------------------------- */
+.sec-bard .r3 .songofrest {
+  flex: 0 0 187px;
+}
+
+.sec-bard .r3 .attacks {
+  flex: 0 0 150px;
+}
+
+.sec-bard .r3 .box {
+  flex: 1;
+}
+
+/* ---- Bard: bottom grid (rows 4 + 5) — same shape as the Barbarian panel -- */
+.sec-bard .r4 {
+  align-items: stretch;
+}
+
+.sec-bard .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-bard .colA .box {
+  flex: 1;
+}
+
+.sec-bard .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-bard .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-bard .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-bard .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-bard .recharge .hdr,
+.sec-bard .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-bard .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-bard .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-bard .colD .wide {
+  flex: 1;
+}
+
+.sec-bard .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-bard .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-bard .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-bard .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ---- Cantrips: six tall rows per column --------------------------------- */
+.sec-cantrips .sp-row {
+  flex: 1;
+  min-height: 34px;
+}
+
+/* ---- Spells Known: header strip (slot grid + summary boxes) -------------- */
+.sec-spells .sp-top {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-spells .slotgrid {
+  flex: 0 0 170px;
+}
+
+.sec-spells .sp-top .box {
+  flex: 0 0 54px;
+  flex-direction: column;
+}
+
+.sec-spells .sp-top .sk {
+  flex: 0 0 62px;
+}
+
+.sec-spells .sp-top .blank {
+  flex: 1;
+}
+
+.sec-spells .sp-top .pts {
+  flex: 0 0 72px;
+  position: relative;
+}
+
+.sec-spells .ptscol {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 6px;
+  line-height: 1.4;
+  text-align: right;
+  color: var(--lbl);
+}
+
+.sec-spells .sp-row {
+  flex: 1;
+  min-height: 22px;
+}
+
+/* ========================================================================== */
+/* CLERIC SHEET — pages 6–8. Page 6 reuses the shared sections (Character/      */
+/* Vitals/Gear/Skills) with a Cleric class panel; page 7 reuses the page-2      */
+/* blocks; page 8 adds the spellcaster Cantrips + Spells Known. Tint sampled    */
+/* from Master.pdf p6 (tan, like Barbarian).                                    */
+/* ========================================================================== */
+.sec-cleric {
+  --panel: #ddd9c4;
+}
+
+/* ---- Cleric: header inputs (row 1) -------------------------------------- */
+.sec-cleric .r1 .divorder {
+  flex: 0 0 96px;
+}
+
+.sec-cleric .r1 .domain {
+  flex: 0 0 86px;
+}
+
+.sec-cleric .r1 .deity {
+  flex: 1;
+}
+
+.sec-cleric .r1 .strike {
+  flex: 0 0 118px;
+}
+
+.sec-cleric .r1 .level {
+  flex: 0 0 40px;
+}
+
+/* choice boxes (Divine Order, Blessed Strikes): corner label + centered
+   printed options the player circles */
+.sec-cleric .r1 .divorder,
+.sec-cleric .r1 .strike {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sec-cleric .r1 .divorder .opts,
+.sec-cleric .r1 .strike .opts {
+  font-size: 6.5px;
+  line-height: 1.5;
+  color: var(--lbl);
+  align-self: center;
+  text-align: center;
+  padding-bottom: 1px;
+}
+
+/* ---- Cleric: middle grid — Channel Divinity rows + Domain feature box ---- */
+.sec-cleric .r2 {
+  align-items: stretch;
+}
+
+.sec-cleric .midleft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-cleric .mid-r1 {
+  flex: 1;
+  align-items: stretch;
+}
+
+.sec-cleric .mid-r1 .channel {
+  flex: 0 0 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+}
+
+.sec-cleric .mid-r1 .turnundead {
+  flex: 0 0 92px;
+  flex-direction: column;
+}
+
+.sec-cleric .mid-r1 .turnundead .dc {
+  font-size: 11px;
+  margin: auto 0;
+  align-self: flex-start;
+}
+
+.sec-cleric .mid-r1 .divint {
+  flex: 0 0 64px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding-bottom: 3px;
+}
+
+.sec-cleric .mid-r1 .divspark {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding-bottom: 3px;
+}
+
+.sec-cleric .mid-r2 {
+  flex: 1;
+  align-items: stretch;
+}
+
+.sec-cleric .mid-r2 .dcd {
+  flex: 1;
+}
+
+.sec-cleric .circles {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* ---- Cleric: bottom grid (rows 4 + 5) — same shape as the Barbarian panel - */
+.sec-cleric .r4 {
+  align-items: stretch;
+}
+
+.sec-cleric .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-cleric .colA .box {
+  flex: 1;
+}
+
+.sec-cleric .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-cleric .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-cleric .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-cleric .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-cleric .recharge .hdr,
+.sec-cleric .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-cleric .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-cleric .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-cleric .colD .wide {
+  flex: 1;
+}
+
+.sec-cleric .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-cleric .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-cleric .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-cleric .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ---- Cleric Spells: pre-printed prepared-spell list (single-use, page 8) - */
+/* Same light-blue tint + heavy border as Cantrips/Spells. The list is nine     */
+/* level bands (1–9); each band = a left number gutter + a 4-column grid of     */
+/* printed spells. A spell entry is [checkbox][tag] then the name on tint; the  */
+/* 4th column carries the class's Domain Spells (printed picks + a write-in     */
+/* line). A casting-abbreviation legend closes the panel.                       */
+.sec-cleric-spells {
+  --panel: #daeef3;
+  border: 2px solid var(--ink);
+}
+
+/* summary strip: slot grid + stat boxes share the width via flex (the slot   */
+/* grid takes ~3× a box; every box grows equally to fill the row).            */
+.sec-cleric-spells .sp-top {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-cleric-spells .sp-top .slotgrid {
+  flex: 3 1 0;
+}
+
+.sec-cleric-spells .sp-top .box {
+  flex: 1 1 0;
+  flex-direction: column;
+}
+
+.sec-cleric-spells .sp-top .pts {
+  position: relative;
+}
+
+.sec-cleric-spells .ptscol {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 6px;
+  line-height: 1.4;
+  text-align: right;
+  color: var(--lbl);
+}
+
+.sec-cleric-spells .cs-list {
+  margin-top: 5px;
+  border: 1px solid var(--ink);
+}
+
+.sec-cleric-spells .cs-lvl {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 2px solid var(--ink);
+}
+
+.sec-cleric-spells .cs-lvl:last-child {
+  border-bottom: 0;
+}
+
+/* big level digit down the left edge of each band */
+.sec-cleric-spells .cs-num {
+  flex: 0 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lbl);
+}
+
+/* the four spell columns of a band */
+.sec-cleric-spells .cs-cols {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px 6px;
+  padding: 3px 4px;
+}
+
+.sec-cleric-spells .cs-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* one printed spell: [checkbox][tag] name */
+.sec-cleric-spells .cs-spell {
+  display: flex;
+  align-items: stretch;
+  min-height: 11px;
+  font-size: 7px;
+  color: var(--lbl);
+}
+
+.sec-cleric-spells .cs-spell .cbx {
+  flex: 0 0 13px;
+  width: 13px;
+  height: 13px;
+}
+
+.sec-cleric-spells .cs-tag {
+  flex: 0 0 12px;
+  height: auto;
+  margin-right: 3px;
+  border: 1px solid var(--ink);
+  border-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0;
+  font-size: 6px;
+  line-height: 1;
+  color: var(--lbl);
+  background-color: white;
+}
+
+.sec-cleric-spells .cs-name {
+  line-height: 1;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* Domain Spells caption + write-in line pinned to the band's bottom */
+.sec-cleric-spells .cs-domain {
+  font-size: 6px;
+  color: var(--lbl);
+  text-align: center;
+  margin-top: 2px;
+}
+
+.sec-cleric-spells .cs-line {
+  margin-top: auto;
+  border-bottom: 1px solid var(--ink);
+  min-height: 9px;
+}
+
+/* casting-abbreviation legend footer */
+.sec-cleric-spells .cs-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 5px;
+  font-size: 6.5px;
+  color: var(--lbl);
+}
+
+.sec-cleric-spells .cs-legend>span {
+  display: flex;
+  align-items: center;
+}
+
+.sec-cleric-spells .cs-legend .cs-tag {
+  flex: 0 0 13px;
+  height: 9px;
+  border-left: 1px solid var(--ink);
+  justify-content: center;
+  padding-right: 0;
+}
+
+/* ========================================================================== */
+/* DRUID SHEET — pages 9–11. Page 9 reuses the shared sections with a Druid     */
+/* class panel; page 10 reuses the page-2 blocks; page 11 adds the spellcaster  */
+/* Cantrips + Spells Known. Tint sampled from Master.pdf p9 (tan, like Barbar.). */
+/* ========================================================================== */
+.sec-druid {
+  --panel: #ddd9c4;
+}
+
+/* ---- Druid: header inputs ---------------------------------------------- */
+.sec-druid .r1 .circle {
+  flex: 0 0 160px;
+}
+
+.sec-druid .r1 .sacred {
+  flex: 1;
+}
+
+.sec-druid .r1 .wildshape {
+  flex: 0 0 72px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.sec-druid .r1 .wildshape .circles {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.sec-druid .r1 .level {
+  flex: 0 0 58px;
+}
+
+/* ---- Druid: feature checklist + wild shape limits ---------------------- */
+.sec-druid .r2 {
+  align-items: stretch;
+}
+
+.sec-druid .features {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0;
+  row-gap: 5px;
+  align-content: center;
+}
+
+.sec-druid .feat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8px;
+}
+
+.sec-druid .r2 .blankbox {
+  flex: 0 0 120px;
+}
+
+.sec-druid .wslimits {
+  flex: 0 0 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 3px 4px;
+}
+
+.sec-druid .wslimits .lbl {
+  font-size: 7px;
+  font-weight: 600;
+}
+
+.sec-druid .r2 .maxcr {
+  flex: 0 0 110px;
+}
+
+/* ---- Druid: four blank boxes ------------------------------------------- */
+.sec-druid .r3 .box {
+  flex: 1;
+}
+
+/* ---- Druid: bottom grid (rows 4 + 5) — same shape as the Barbarian panel - */
+.sec-druid .r4 {
+  align-items: stretch;
+}
+
+.sec-druid .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-druid .colA .box {
+  flex: 1;
+}
+
+.sec-druid .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-druid .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-druid .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-druid .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-druid .recharge .hdr,
+.sec-druid .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-druid .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-druid .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-druid .colD .wide {
+  flex: 1;
+}
+
+.sec-druid .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-druid .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-druid .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-druid .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ========================================================================== */
+/* FIGHTER SHEET — pages 12–14. Page 12 reuses the shared sections with a       */
+/* Fighter class panel (Battle-Master maneuvers); page 13 reuses the page-2     */
+/* blocks; page 14 adds the Eldritch Knight Cantrips + Spells. Tint = tan.      */
+/* ========================================================================== */
+.sec-fighter {
+  --panel: #ddd9c4;
+}
+
+/* ---- Fighter: header inputs -------------------------------------------- */
+.sec-fighter .r1 .archetype {
+  flex: 1;
+}
+
+.sec-fighter .r1 .style {
+  flex: 1;
+}
+
+.sec-fighter .r1 .nattacks {
+  flex: 0 0 70px;
+}
+
+.sec-fighter .r1 .level {
+  flex: 0 0 58px;
+}
+
+/* ---- Fighter: maneuvers grid + resource boxes -------------------------- */
+.sec-fighter .r2 {
+  align-items: stretch;
+}
+
+.sec-fighter .maneuvers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.sec-fighter .maneuvers .hdr2 {
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.sec-fighter .mgrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-auto-flow: column;
+  row-gap: 4px;
+  column-gap: 4px;
+  align-content: center;
+}
+
+.sec-fighter .feat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 7px;
+}
+
+.sec-fighter .fstats {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-fighter .fstats .box {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.sec-fighter .fstats .supdice {
+  flex: 1;
+}
+
+.sec-fighter .fstats .srow {
+  flex: 1;
+  gap: 5px;
+}
+
+.sec-fighter .fstats .srow .box {
+  flex: 1;
+}
+
+.sec-fighter .fstats .secwind {
+  flex: 1;
+}
+
+.sec-fighter .fstats .circles {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ---- Fighter: bottom grid (rows 4 + 5) — same shape as the Barbarian panel */
+.sec-fighter .r4 {
+  align-items: stretch;
+}
+
+.sec-fighter .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-fighter .colA .box {
+  flex: 1;
+}
+
+.sec-fighter .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-fighter .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-fighter .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-fighter .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-fighter .recharge .hdr,
+.sec-fighter .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-fighter .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-fighter .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-fighter .colD .wide {
+  flex: 1;
+}
+
+.sec-fighter .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-fighter .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-fighter .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-fighter .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ========================================================================== */
+/* MONK SHEET — pages 15–16. Page 15 reuses the shared sections with a Monk     */
+/* class panel (a dense five-column feature list — no secondary-class block,    */
+/* no spells); page 16 reuses the page-2 blocks. Tint = tan, like Barbarian.    */
+/* ========================================================================== */
+.sec-monk {
+  --panel: #ddd9c4;
+}
+
+/* ---- Monk: header inputs ----------------------------------------------- */
+.sec-monk .r1 .tradition {
+  flex: 1;
+}
+
+.sec-monk .r1 .mvmt {
+  flex: 0 0 76px;
+}
+
+.sec-monk .r1 .madmg {
+  flex: 0 0 92px;
+}
+
+.sec-monk .r1 .kisave {
+  flex: 0 0 54px;
+}
+
+.sec-monk .r1 .kipoints {
+  flex: 0 0 54px;
+}
+
+.sec-monk .r1 .level {
+  flex: 0 0 50px;
+}
+
+/* ---- Monk: feature columns --------------------------------------------- */
+.sec-monk .r2 {
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.sec-monk .mcol {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sec-monk .c1 {
+  flex: 0 0 112px;
+}
+
+.sec-monk .c2 {
+  flex: 0 0 112px;
+}
+
+.sec-monk .elements {
+  flex: 1;
+}
+
+.sec-monk .shadow {
+  flex: 0 0 100px;
+}
+
+.sec-monk .feat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 6.5px;
+}
+
+.sec-monk .hdr2 {
+  font-size: 7.5px;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.sec-monk .esubs {
+  display: flex;
+  gap: 6px;
+}
+
+.sec-monk .esub {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sec-monk .box.hpreg {
+  min-height: 22px;
+}
+
+.sec-monk .box.slowfall {
+  min-height: 42px;
+  margin-top: 3px;
+}
+
+.sec-monk .shadow .toprow {
+  display: flex;
+  gap: 4px;
+}
+
+.sec-monk .shadow .toprow .box {
+  flex: 1;
+  flex-direction: column;
+  min-height: 30px;
+}
+
+/* ==== PALADIN SHEET — pages 17–19. Page 17 reuses the shared sections        */
+/* (Character/Vitals/Gear/Skills) with a Paladin class panel; page 18 reuses    */
+/* the page-2 blocks; page 19 adds the spellcaster Cantrips + Paladin Spells     */
+/* (slot grid trimmed to a half-caster's levels 1–5). Tint sampled from         */
+/* Master.pdf p17 (tan, like every other class panel). ==== */
+.sec-paladin {
+  --panel: #ddd9c4;
+}
+
+/* ---- Paladin: top region (left feature block + right Lay/Level/Sense) --- */
+.sec-paladin .r1 {
+  align-items: stretch;
+}
+
+.sec-paladin .leftcol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-paladin .rightcol {
+  flex: 0 0 125px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* row 1a: Sacred Oath / Fighting Style */
+.sec-paladin .toprow .oath {
+  flex: 0 0 188px;
+}
+
+.sec-paladin .toprow .style {
+  flex: 1;
+}
+
+/* row 1b: Channel Divinity / smite + aura checks / Num of Attacks */
+.sec-paladin .midrow {
+  flex: 1;
+  align-items: stretch;
+}
+
+.sec-paladin .midrow .channel {
+  flex: 0 0 200px;
+}
+
+.sec-paladin .smiteaura {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.sec-paladin .smiteaura .checkcol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sec-paladin .smiteaura .feat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 7.5px;
+}
+
+.sec-paladin .midrow .attacks {
+  flex: 0 0 62px;
+}
+
+/* right column: Lay on Hands + Level, then Divine Sense */
+.sec-paladin .rtop .layhands {
+  flex: 1;
+}
+
+.sec-paladin .rtop .level {
+  flex: 0 0 50px;
+}
+
+.sec-paladin .divinesense {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sec-paladin .divinesense .circles {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+/* ---- Paladin: Oath Features full-width row ------------------------------ */
+.sec-paladin .r2 .oathfeat {
+  flex: 1;
+  min-height: 40px;
+}
+
+/* ---- Paladin: bottom grid (rows 4 + 5) — same shape as the Bard panel --- */
+.sec-paladin .r4 {
+  align-items: stretch;
+}
+
+.sec-paladin .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-paladin .colA .box {
+  flex: 1;
+}
+
+.sec-paladin .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-paladin .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-paladin .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-paladin .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-paladin .recharge .hdr,
+.sec-paladin .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-paladin .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-paladin .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-paladin .colD .wide {
+  flex: 1;
+}
+
+.sec-paladin .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-paladin .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-paladin .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-paladin .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ==== ROGUE SHEET — pages 23–25. Page 23 reuses the shared sections           */
+/* (Character/Vitals/Gear/Skills) with a Rogue class panel; page 24 reuses the   */
+/* page-2 blocks; page 25 adds the spellcaster sections Cantrips + Spells Known   */
+/* (Arcane Trickster). The Cantrips/Spells tints already exist globally           */
+/* (.sec-cantrips / .sec-spells), so they are NOT redefined here. Tint sampled    */
+/* from Master.pdf p23 (tan, like Barbarian). Every selector is scoped to         */
+/* .sec-rogue. ============================================================== */
+.sec-rogue {
+  --panel: #ddd9c4;
+}
+
+/* ---- Rogue: top region = feature block (left) + checklist block (right) -- */
+.sec-rogue .r-top {
+  align-items: stretch;
+}
+
+.sec-rogue .featblock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-rogue .rightblock {
+  flex: 0 0 133px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* the left feature block: a header row over a 2x2 grid of feature boxes */
+.sec-rogue .featblock .r1 {
+  flex: 0 0 30px;
+}
+
+.sec-rogue .featblock .frow {
+  flex: 1;
+}
+
+.sec-rogue .featblock .archetype,
+.sec-rogue .featblock .feat.left {
+  flex: 0 0 185px;
+}
+
+.sec-rogue .featblock .homeland,
+.sec-rogue .featblock .feat.right {
+  flex: 1;
+}
+
+/* the right block: a Sneak Attack / Level header row over the feature checklist */
+.sec-rogue .sa-row {
+  flex: 0 0 30px;
+}
+
+.sec-rogue .sa-row .box {
+  flex: 1;
+}
+
+.sec-rogue .checklist {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  gap: 5px 2px;
+}
+
+.sec-rogue .chk {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 7px;
+}
+
+/* ---- Rogue: bottom grid (rows 4 + 5) — same shape as the Barbarian panel - */
+.sec-rogue .r4 {
+  align-items: stretch;
+}
+
+.sec-rogue .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-rogue .colA .box {
+  flex: 1;
+}
+
+.sec-rogue .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-rogue .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-rogue .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-rogue .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-rogue .recharge .hdr,
+.sec-rogue .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-rogue .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-rogue .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-rogue .colD .wide {
+  flex: 1;
+}
+
+.sec-rogue .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-rogue .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-rogue .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-rogue .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ========================================================================== */
+/* SORCERER SHEET — pages 26–28. Page 26 reuses the shared sections             */
+/* (Character/Vitals/Gear/Skills) with a Sorcerer class panel; page 27 reuses   */
+/* the page-2 blocks; page 28 adds the spellcaster Cantrips + Spells Known       */
+/* (full caster, slots 1–9 — identical to Bard, plus a Sorcery Pts. box). Tint   */
+/* sampled from Master.pdf p26 (tan, like Barbarian).                            */
+/* ========================================================================== */
+.sec-sorcerer {
+  --panel: #ddd9c4;
+}
+
+/* ---- Sorcerer: row 1 — metamagic / max sor pts / level ------------------ */
+.sec-sorcerer .r1 {
+  align-items: stretch;
+}
+
+.sec-sorcerer .r1 .maxsp {
+  flex: 0 0 80px;
+  flex-direction: column;
+}
+
+.sec-sorcerer .r1 .level {
+  flex: 0 0 56px;
+  flex-direction: column;
+}
+
+/* metamagic options: 2024 PHB list — 10 options in a 3-col checklist. Rows
+   touch vertically with the check squares stretched to full row height, same
+   ladder look as the Equipment .eq/.qty rows (row-gap 0, cbx align stretch). */
+.sec-sorcerer .metamagic {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 6px;
+  row-gap: 0;
+  align-content: center;
+}
+
+.sec-sorcerer .mm {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  font-size: 7px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.sec-sorcerer .mm .cbx {
+  flex: 0 0 11px;
+  width: 11px;
+  height: auto;
+  align-self: stretch;
+}
+
+.sec-sorcerer .mm .nm {
+  display: flex;
+  align-items: center;
+  padding: 2px 3px;
+}
+
+/* ---- Sorcerer: row 2 — 2×2 Feature boxes -------------------------------- */
+.sec-sorcerer .features2 {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.sec-sorcerer .features2 .box {
+  min-height: 36px;
+}
+
+/* ---- Sorcerer: bottom grid — same shape as the Bard/Barbarian panel ----- */
+.sec-sorcerer .r4 {
+  align-items: stretch;
+}
+
+.sec-sorcerer .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-sorcerer .colA .box {
+  flex: 1;
+}
+
+.sec-sorcerer .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-sorcerer .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-sorcerer .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-sorcerer .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-sorcerer .recharge .hdr,
+.sec-sorcerer .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-sorcerer .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-sorcerer .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-sorcerer .colD .wide {
+  flex: 1;
+}
+
+.sec-sorcerer .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-sorcerer .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-sorcerer .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-sorcerer .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ---- Sorcerer Spells: pre-printed 2024 spell list (single-use, page 28) */
+/* Same light-blue tint + heavy border as Cantrips/Spells. The list is nine     */
+/* level bands (1–9); each band = a left number gutter + a 4-column grid of     */
+/* printed spells. A spell entry is [checkbox][tag] then the name on tint; the  */
+/* 4th column's leftover rows are blank write-in lines for the subclass's       */
+/* always-prepared spells. A casting-abbreviation legend closes the panel.      */
+.sec-sorcerer-spells {
+  --panel: #daeef3;
+  border: 2px solid var(--ink);
+}
+
+/* summary strip: slot grid + stat boxes share the width via flex (the slot   */
+/* grid takes ~3× a box; every box grows equally to fill the row).            */
+.sec-sorcerer-spells .sp-top {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-sorcerer-spells .sp-top .slotgrid {
+  flex: 3 1 0;
+}
+
+.sec-sorcerer-spells .sp-top .box {
+  flex: 1 1 0;
+  flex-direction: column;
+}
+
+.sec-sorcerer-spells .sp-top .pts {
+  position: relative;
+}
+
+.sec-sorcerer-spells .ptscol {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  font-size: 6px;
+  line-height: 1.4;
+  text-align: right;
+  color: var(--lbl);
+}
+
+.sec-sorcerer-spells .cs-list {
+  margin-top: 5px;
+  border: 1px solid var(--ink);
+}
+
+.sec-sorcerer-spells .cs-lvl {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 2px solid var(--ink);
+}
+
+.sec-sorcerer-spells .cs-lvl:last-child {
+  border-bottom: 0;
+}
+
+/* big level digit down the left edge of each band */
+.sec-sorcerer-spells .cs-num {
+  flex: 0 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lbl);
+}
+
+/* the four spell columns of a band */
+.sec-sorcerer-spells .cs-cols {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px 6px;
+  padding: 3px 4px;
+}
+
+.sec-sorcerer-spells .cs-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* one printed spell: [checkbox][tag] name */
+.sec-sorcerer-spells .cs-spell {
+  display: flex;
+  align-items: stretch;
+  min-height: 11px;
+  font-size: 7px;
+  color: var(--lbl);
+}
+
+.sec-sorcerer-spells .cs-spell .cbx {
+  flex: 0 0 13px;
+  width: 13px;
+  height: 13px;
+}
+
+.sec-sorcerer-spells .cs-tag {
+  flex: 0 0 12px;
+  height: auto;
+  margin-right: 3px;
+  border: 1px solid var(--ink);
+  border-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0;
+  font-size: 6px;
+  line-height: 1;
+  color: var(--lbl);
+  background-color: white;
+}
+
+.sec-sorcerer-spells .cs-name {
+  line-height: 1;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* subclass-spell caption (unused in markup; kept for parity) */
+.sec-sorcerer-spells .cs-domain {
+  font-size: 6px;
+  color: var(--lbl);
+  text-align: center;
+  margin-top: 2px;
+}
+
+.sec-sorcerer-spells .cs-line {
+  margin-top: auto;
+  border-bottom: 1px solid var(--ink);
+  min-height: 9px;
+}
+
+/* casting-abbreviation legend footer */
+.sec-sorcerer-spells .cs-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 5px;
+  font-size: 6.5px;
+  color: var(--lbl);
+}
+
+.sec-sorcerer-spells .cs-legend>span {
+  display: flex;
+  align-items: center;
+}
+
+.sec-sorcerer-spells .cs-legend .cs-tag {
+  flex: 0 0 13px;
+  height: 9px;
+  border-left: 1px solid var(--ink);
+  justify-content: center;
+  padding-right: 0;
+}
+
+/* ==== WARLOCK SHEET — pages 29-31. Page 29 reuses the shared sections    */
+/* (Character/Vitals/Gear/Skills) with a Warlock class panel; page 30       */
+/* reuses the page-2 blocks; page 31 adds the spellcaster Cantrips +         */
+/* Spells Known plus a Warlock-only Invocations section. Pact Magic is        */
+/* represented by the Mystic Arcanum 6th-9th boxes in the panel and the       */
+/* Invocations boxes; the spell-slot grid is the standard 1-9 grid (page 31   */
+/* matches every full caster). Tint sampled from Master.pdf p29 (tan).        */
+/* ==== */
+.sec-warlock {
+  --panel: #ddd9c4;
+}
+
+/* ---- Warlock: top block — Patron/Pact column | arcanum grid + Level | Features ---- */
+.sec-warlock .r1 {
+  align-items: stretch;
+  min-height: 118px;
+}
+
+.sec-warlock .colL {
+  flex: 0 0 112px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-warlock .colL .box {
+  flex: 1;
+}
+
+.sec-warlock .colR {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-warlock .arc-row {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  flex: 1.3;
+}
+
+.sec-warlock .arcgrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.sec-warlock .arc {
+  position: relative;
+}
+
+.sec-warlock .arc .lbl.right {
+  margin-right: 11px;
+}
+
+.sec-warlock .arc .cbx {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+}
+
+.sec-warlock .level {
+  flex: 0 0 48px;
+}
+
+.sec-warlock .features {
+  flex: 1;
+}
+
+/* ---- Warlock: bottom block — same shape as the Bard/Barbarian panel ----- */
+.sec-warlock .r4 {
+  align-items: stretch;
+}
+
+.sec-warlock .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-warlock .colA .box {
+  flex: 1;
+}
+
+.sec-warlock .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-warlock .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-warlock .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-warlock .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-warlock .recharge .hdr,
+.sec-warlock .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-warlock .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-warlock .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-warlock .colD .wide {
+  flex: 1;
+}
+
+.sec-warlock .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-warlock .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-warlock .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-warlock .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* ---- Invocations (page 31 bottom) — light-blue page-31 panel, 2x4 boxes -- */
+/* Scoped under .pact so it never touches other classes' sec-spells panels.   */
+.section.sec-invocations.pact {
+  --panel: #daeef3;
+  border: 2px solid var(--ink);
+}
+
+.pact .inv-cols {
+  flex: 1;
+  display: flex;
+  gap: 5px;
+}
+
+.pact .inv-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pact .inv {
+  flex: 1;
+  min-height: 64px;
+  align-items: flex-end;
+}
+
+/* ==== WIZARD SHEET — pages 32–34 (front / back / spellbook) ============= */
+/* Page 32 reuses the shared sections (Character/Vitals/Gear/Skills) with a  */
+/* Wizard class panel; page 33 reuses the page-2 blocks; page 34 adds the    */
+/* spellcaster sections Cantrips + Spellbook (full caster, slots 1-9 — same  */
+/* primitives as Bard). Tint sampled from Master.pdf p32 (tan, like Bard).   */
+/* ======================================================================== */
+.sec-wizard {
+  --panel: #ddd9c4;
+}
+
+/* ---- Wizard: top cluster (School / Spell Mastery x2 / Arcane Rec. / Level) */
+.sec-wizard .toprow {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-wizard .topleft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-wizard .topleft .row {
+  flex: 1;
+}
+
+.sec-wizard .school {
+  flex: 1.3;
+}
+
+.sec-wizard .mastery {
+  flex: 1.4;
+}
+
+.sec-wizard .mastery.wide {
+  flex: 1.7;
+}
+
+.sec-wizard .sig {
+  flex: 1;
+}
+
+.sec-wizard .topmid {
+  flex: 0 0 86px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-wizard .topmid .box {
+  flex: 1;
+}
+
+.sec-wizard .level {
+  flex: 0 0 58px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Wizard: School Features (full-width write-in) ---------------------- */
+.sec-wizard .features {
+  flex: 1;
+  min-height: 46px;
+}
+
+/* ---- Wizard: bottom grid (row 4) — same shape as the Bard/Barbarian panel */
+.sec-wizard .r4 {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-wizard .colA {
+  flex: 0 0 187px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-wizard .colA .box {
+  flex: 1;
+}
+
+.sec-wizard .tall {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 4px;
+}
+
+.sec-wizard .tall .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.sec-wizard .recharge {
+  flex: 0 0 96px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-wizard .rest {
+  flex: 0 0 63px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.sec-wizard .recharge .hdr,
+.sec-wizard .rest .hdr {
+  font-size: 7px;
+}
+
+.sec-wizard .rest .hdr {
+  align-self: flex-end;
+}
+
+.sec-wizard .colD {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-wizard .colD .wide {
+  flex: 1;
+}
+
+.sec-wizard .colD .splitrow {
+  display: flex;
+  gap: 5px;
+  flex: 1;
+}
+
+.sec-wizard .colD .splitrow .box {
+  flex: 1;
+}
+
+.sec-wizard .colD .three {
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0 0 81px;
+}
+
+.sec-wizard .colD .three .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* === Class picker (screen-only control; never prints) ==================== */
+.picker {
+  width: 594px;
+  margin: 0 auto 10px;
+  padding: 8px 0;
+  font: 13px/1 system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.picker select {
+  font: 13px/1 system-ui, sans-serif;
+  padding: 3px 6px;
+}
+
+.sheet[hidden] {
+  display: none;
+}
+
+/* <sheet-section> is a layout-neutral wrapper: its cloned .section
+   behaves as a direct child of .sheet, exactly as the old inline markup did. */
+sheet-section {
+  display: contents;
+}
+
+@media print {
+  .picker {
+    display: none;
+  }
+}
