@@ -1,0 +1,13 @@
+# GitHub Pages build config.
+#
+# Pages builds the site with Jekyll, which copies every file as-is (the HTML and
+# CSS carry no front matter, so nothing is templated) except the paths listed
+# below. That lets Master.pdf stay committed in the repo as a layout reference
+# while never being published to the live site.
+exclude:
+  - Master.pdf
+  - README.md
+  - CLAUDE.md
+  - MILESTONES.md
+  - LICENSE
+  - tools

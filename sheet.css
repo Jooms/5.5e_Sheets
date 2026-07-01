@@ -388,15 +388,26 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 1px;
-  background: var(--ink);
   border: 1px solid var(--ink);
 }
 
+/* Real borders (not a gap over an ink background) so the grid lines survive
+   printing with "Background graphics" off. Inner cells draw a right/bottom edge;
+   the right column and bottom row drop theirs to avoid doubling the outer border. */
 .sec-vitals .potgrid .box {
   border: 0;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
   min-height: 0;
   position: relative;
+}
+
+.sec-vitals .potgrid .box:nth-child(2n) {
+  border-right: 0;
+}
+
+.sec-vitals .potgrid .box:nth-child(n + 3) {
+  border-bottom: 0;
 }
 
 .sec-vitals .potrow {
@@ -432,6 +443,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--field);
+  /* Keep the white fill when printing so it masks the grid lines behind the
+     label, even with "Background graphics" off. */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
   border: 1px solid var(--ink);
   padding: 2px 4px;
   font-size: 6.5px;
@@ -3001,6 +3016,43 @@ sheet-section {
 
 @media print {
   .picker {
+    display: none;
+  }
+
+  /* Force page boundaries: page 1 ends after Skills, page 2 ends after Background.
+     A non-caster's Background is the last section, so :not(:last-child) skips the
+     break there and avoids a trailing blank page; on a spellcaster it breaks
+     before Cantrips/Spells so those land on their own page. */
+  .sec-skills {
+    break-after: page;
+    page-break-after: always;
+  }
+  .sheet > sheet-section[name="background"]:not(:last-child) > .sec-background {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  /* Repeating footer: a position:fixed element reprints at the bottom of every
+     printed page. @page reserves the space so sheet content never runs under it. */
+  @page {
+    margin-bottom: 16mm;
+  }
+  .print-footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font: 9px/1.4 system-ui, sans-serif;
+    color: #555;
+  }
+}
+
+/* The print footer is screen-hidden; only the @media print rule above shows it.
+   Scoped to @media screen so it can't override the print rule in the cascade. */
+@media screen {
+  .print-footer {
     display: none;
   }
 }

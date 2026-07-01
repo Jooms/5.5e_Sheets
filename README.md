@@ -6,6 +6,8 @@ original layout but let you change the look and the fields whenever you want.
 Every sheet is built by hand from ordinary `div` and `span` elements with CSS
 borders. No canvas, no images, no framework.
 
+**Live page: <https://jooms.github.io/5.5e_Sheets/>**
+
 ## Design goal
 
 Keep the project HTML- and CSS-based. The layout, the styling, and every field
@@ -32,7 +34,7 @@ only) shows one class sheet at a time. You can also jump straight to a class wit
 | `index.html` | Markup only, plus the `#classpick` picker. It links `style.css` and then `sheet.css` (that order matters) and holds the small picker script. One `<div class="sheet">` per class. |
 | `style.css`  | The component library: the reusable box-model pieces every sheet shares, like `.section`, `.box`, `.lbl`, `.cbx`, `.ring`, and `.lined`. Change a piece here and every sheet updates. Linked first. |
 | `sheet.css`  | The per-sheet styles: section color palettes and per-section layout. Every rule is namespaced under a `.sec-NAME` so classes can't step on each other. The file is grouped one class at a time behind banner comments like `PALADIN SHEET`. Linked after `style.css`. |
-| `Master.pdf` | The original 34-page PDF. It stays in the repo as a reference for how the sheets should look. |
+| `Master.pdf` | The original 34-page PDF, committed to the repo as a reference for how the sheets should look. `_config.yml` excludes it from the Jekyll build, so GitHub Pages never serves it. |
 | `CLAUDE.md`  | Deeper design notes: the three layers, how to add a class, the pre-printed spell-list component, and how colors are sampled. Worth reading before a big change. |
 | `tools/`     | `pngdiff.py`, a small script that diffs two screenshots to confirm a change renders the same. |
 
