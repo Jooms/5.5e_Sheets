@@ -1,0 +1,4 @@
+# Adds a "Sponsor" button to the top of the GitHub repo page.
+# buy_me_a_coffee takes just your username — the part after
+# buymeacoffee.com/ in your page URL (e.g. buymeacoffee.com/jooms -> jooms).
+buy_me_a_coffee: jooms
