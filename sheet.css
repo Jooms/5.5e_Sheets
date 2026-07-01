@@ -3027,16 +3027,32 @@ sheet-section {
     break-after: page;
     page-break-after: always;
   }
-  .sheet > sheet-section[name="background"]:not(:last-child) > .sec-background {
+
+  .sheet>sheet-section[name="background"]:not(:last-child)>.sec-background {
     break-after: page;
     page-break-after: always;
   }
 
-  /* Repeating footer: a position:fixed element reprints at the bottom of every
-     printed page. @page reserves the space so sheet content never runs under it. */
-  @page {
-    margin-bottom: 16mm;
+  /* The sheet is authored at 594px (~157mm) and each logical page-group
+     (page 1 = Character..Skills, page 2 = Money..Background) already nearly
+     fills the printable HEIGHT at 1x. Height, not width, is the binding
+     constraint: scale up only as far as the tallest group still fits one page.
+     ~1.10 is the ceiling before page 1's Skills row spills onto the next page,
+     which reads as a missing top margin. Bump only if you re-verify every class.
+     display:block (not the screen flex) so the .sheet paginates as normal block
+     flow; a flex item that spans pages mis-handles fragmentation in Chrome. */
+  .page {
+    display: block;
+    zoom: 1.10;
   }
+
+  /* Repeating footer: a position:fixed element reprints at the bottom of every
+     printed page. @page reserves the space so sheet content never runs under it.
+     Tight side margins give the scaled-up sheet room to fill the width. */
+  @page {
+    margin: 10mm 8mm 16mm;
+  }
+
   .print-footer {
     display: block;
     position: fixed;
@@ -3054,5 +3070,11 @@ sheet-section {
 @media screen {
   .print-footer {
     display: none;
+  }
+
+  /* The sheet is authored at its true print width (594px), which renders small
+     on a modern display. Double it on screen only; print stays at real size. */
+  .page {
+    zoom: 1.5;
   }
 }
