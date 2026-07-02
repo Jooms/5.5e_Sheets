@@ -105,7 +105,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -204,7 +204,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -321,7 +321,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -847,7 +847,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -983,7 +983,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -1295,11 +1295,16 @@
       <sheet-section name="character"></sheet-section>
 
       <!-- ===== Paladin (class panel — single-use, like Barbarian) ========= -->
+      <!-- 2024 (5.5e) rules: Divine Sense and Abjure Foes are now Channel      -->
+      <!-- Divinity options (not a 6/rest counter); Weapon Mastery is a new     -->
+      <!-- level-1 feature; Divine Smite is a spell (see the spell list);        -->
+      <!-- Improved Divine Smite → Radiant Strikes, Cleansing Touch →            -->
+      <!-- Restoring Touch; Epic Boon added at the bottom like the Cleric.       -->
       <div class="section sec-paladin">
-        <div class="tab"><span>Paladin (old)</span></div>
+        <div class="tab"><span>Paladin</span></div>
         <div class="body">
 
-          <!-- Row 1: left feature block + right Lay on Hands / Level / Divine Sense -->
+          <!-- Row 1: left feature block + right Lay on Hands / Level / Weapon Mastery -->
           <div class="row r1">
             <div class="leftcol">
 
@@ -1309,21 +1314,21 @@
                 <div class="box style"><span class="lbl">Fighting Style</span></div>
               </div>
 
-              <!-- Channel Divinity / smite + aura checks / Num of Attacks -->
+              <!-- Weapon Masteries (left) / feature checks -->
               <div class="row midrow">
-                <div class="box channel"><span class="lbl">Channel Divinity</span></div>
+                <div class="box weaponmastery"><span class="lbl">Weapon Masteries</span></div>
                 <div class="box smiteaura">
                   <div class="checkcol">
-                    <div class="feat"><span class="cbx"></span>Divine Smite</div>
-                    <div class="feat"><span class="cbx"></span>Im. Divine Smite</div>
-                  </div>
-                  <div class="checkcol">
+                    <div class="feat"><span class="cbx"></span>Faithful Steed</div>
                     <div class="feat"><span class="cbx"></span>Aura of Protection</div>
                     <div class="feat"><span class="cbx"></span>Aura of Courage</div>
-                    <div class="feat"><span class="cbx"></span>Cleansing Touch</div>
+                  </div>
+                  <div class="checkcol">
+                    <div class="feat"><span class="cbx"></span>Radiant Strikes</div>
+                    <div class="feat"><span class="cbx"></span>Restoring Touch</div>
+                    <div class="feat"><span class="cbx"></span>Aura Expansion</div>
                   </div>
                 </div>
-                <div class="box attacks"><span class="lbl">Num of Attacks</span></div>
               </div>
 
             </div>
@@ -1331,11 +1336,18 @@
             <div class="rightcol">
               <div class="row rtop">
                 <div class="box layhands"><span class="lbl">Lay on Hands</span></div>
-                <div class="box level"><span class="lbl big">Level</span></div>
+                <div class="box lohpool"><span class="lbl">LoH Pool</span></div>
+                <div class="box level"><span class="lbl">Level</span></div>
               </div>
-              <div class="box divinesense">
-                <span class="lbl center">Divine Sense</span>
-                <div class="circles">⑥ ⑤ ④ ③ ② ①</div>
+              <!-- Extra Attack over Channel Divinity (charges + options) -->
+              <div class="cdcol">
+                <div class="attacks"><span class="cbx"></span>Extra Attack</div>
+                <div class="box channel">
+                  <span class="lbl">Channel Divinity</span>
+                  <span class="lbl opt-top">Divine Sense</span>
+                  <span class="lbl opt-bot">Abjure Foes</span>
+                  <span class="circles">③②①</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1352,7 +1364,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -1366,7 +1378,7 @@
             </div>
 
             <div class="colD">
-              <div class="box wide"></div>
+              <div class="box wide"><span class="lbl left">Epic Boon</span></div>
               <div class="splitrow">
                 <div class="box"></div>
                 <div class="box tall three"><span class="circles">③②①</span></div>
@@ -1438,122 +1450,175 @@
         </div>
       </div>
 
-      <!-- ===== Paladin Spells (spellcaster common; half-caster, levels 1–5) === -->
-      <div class="section sec-spells">
+      <!-- ===== Paladin Spells (single-use: 2024 pre-printed prepared list) === -->
+      <!-- Half-caster: levels 1-5.  Same shape as the Cleric Spells list.       -->
+      <!-- Column 4 of each band carries blank .cs-line rows for the subclass's   -->
+      <!-- always-prepared Oath spells (Devotion/Glory/Ancients/Vengeance).       -->
+      <div class="section sec-paladin-spells">
         <div class="tab"><span>Paladin Spells</span></div>
         <div class="body">
 
-          <!-- summary strip: spell-slot grid (levels 1–5) + caster stats -->
+          <!-- summary strip: spell-slot grid (levels 1-5) + caster stats -->
           <div class="sp-top">
-            <div class="slotgrid" style="grid-template-columns:repeat(2,1fr)">
+            <div class="slotgrid">
               <div class="slot"><span class="n">1</span><span class="c">④③②①</span></div>
-              <div class="slot"><span class="n">4</span><span class="c">③②①</span></div>
               <div class="slot"><span class="n">2</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">5</span><span class="c">③②①</span></div>
               <div class="slot"><span class="n">3</span><span class="c">③②①</span></div>
-              <div class="slot"></div>
+              <div class="slot"><span class="n">4</span><span class="c">③②①</span></div>
+              <div class="slot"><span class="n">5</span><span class="c">②①</span></div>
             </div>
-            <div class="box blank"></div>
             <div class="box"><span class="lbl">Max Prepped</span></div>
             <div class="box"><span class="lbl">Max Lvl</span></div>
-            <div class="box blank"></div>
             <div class="box"><span class="lbl">Attack</span></div>
             <div class="box"><span class="lbl">DC</span></div>
-            <div class="box"><span class="lbl">Spell Pts.</span></div>
           </div>
 
-          <!-- two columns of spell entries -->
-          <div class="sp-cols">
-            <div class="sp-col">
-              <div class="sp-head"><span class="f-cast">Cast</span><span class="f-lvl">Lvl</span><span
-                  class="f-spell">Spell</span><span class="f-save">Save</span><span class="f-dmg">Damage</span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-            </div>
-            <div class="sp-col">
-              <div class="sp-head"><span class="f-cast">Cast</span><span class="f-lvl">Lvl</span><span
-                  class="f-spell">Spell</span><span class="f-save">Save</span><span class="f-dmg">Damage</span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-lvl"></span><span
-                  class="f-spell"></span><span class="f-save"></span><span class="f-dmg"></span><span
-                  class="f-tag"></span></div>
-            </div>
-          </div>
+          <!-- five level bands (1-5); each = a number gutter + 4-column spell grid -->
+          <div class="cs-list">
 
+            <div class="cs-lvl">
+              <div class="cs-num">1</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Bless</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Command</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Compelled Duel</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Cure Wounds</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Detect Evil and Good</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Detect Magic</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Detect Poison &amp; Disease</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Divine Favor</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Divine Smite</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Heroism</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Protection from Evil and Good</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Purify Food and Drink</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Searing Smite</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Shield of Faith</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Thunderous Smite</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Wrathful Smite</span></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-lvl">
+              <div class="cs-num">2</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Aid</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Find Steed</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Gentle Repose</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Lesser Restoration</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Locate Object</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Magic Weapon</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span class="cs-name">Prayer of Healing</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Protection from Poison</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Shining Smite</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Warding Bond</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Zone of Truth</span></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-lvl">
+              <div class="cs-num">3</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Aura of Vitality</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Blinding Smite</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Create Food and Water</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Crusader's Mantle</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Daylight</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Dispel Magic</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Elemental Weapon</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span class="cs-name">Magic Circle</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Remove Curse</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Revivify</span></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-lvl">
+              <div class="cs-num">4</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Aura of Life</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Aura of Purity</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Banishment</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Death Ward</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Locate Creature</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Staggering Smite</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cs-lvl">
+              <div class="cs-num">5</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Banishing Smite</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Circle of Power</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Destructive Wave</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Dispel Evil and Good</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span class="cs-name">Geas</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Greater Restoration</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span class="cs-name">Raise Dead</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Summon Celestial</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- casting-abbreviation legend -->
+            <div class="cs-legend">
+              <span><span class="cs-tag">A</span>Action</span>
+              <span><span class="cs-tag">BA</span>Bonus Action</span>
+              <span><span class="cs-tag">R</span>Reaction</span>
+              <span><span class="cs-tag">RT</span>Ritual</span>
+              <span><span class="cs-tag">T</span>Time to cast</span>
+            </div>
+
+          </div>
         </div>
       </div>
 
@@ -1619,7 +1684,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -2428,7 +2493,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">
@@ -2677,7 +2742,7 @@
                 <span class="lbl">Secondary Class</span>
                 <span class="lbl right">Level</span>
               </div>
-              <div class="box"><span class="lbl">Archetype</span></div>
+              <div class="box"></div>
             </div>
 
             <div class="box tall recharge">

@@ -2032,7 +2032,7 @@
 }
 
 .sec-paladin .rightcol {
-  flex: 0 0 125px;
+  flex: 0 0 175px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -2047,14 +2047,50 @@
   flex: 1;
 }
 
-/* row 1b: Channel Divinity / smite + aura checks / Num of Attacks */
+/* row 1b: [Channel Divinity over Extra Attack] + smite/aura feature checks */
 .sec-paladin .midrow {
   flex: 1;
   align-items: stretch;
 }
 
-.sec-paladin .midrow .channel {
-  flex: 0 0 200px;
+/* right-column stack: Extra Attack (1 part) over Channel Divinity (2 parts),  */
+/* filling the space under Lay on Hands / Level.                               */
+.sec-paladin .cdcol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* corner labels (Channel Divinity top-left, Divine Sense top-right, Abjure   */
+/* Foes bottom-right) with the charge circles centered in the box.            */
+.sec-paladin .cdcol .channel {
+  flex: 2 1 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec-paladin .channel>.lbl {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+.sec-paladin .channel .opt-top {
+  left: auto;
+  right: 4px;
+}
+
+.sec-paladin .channel .opt-bot {
+  top: auto;
+  left: auto;
+  right: 4px;
+  bottom: 3px;
+}
+
+.sec-paladin .channel .circles {
+  font-size: 9px;
+  letter-spacing: 1px;
 }
 
 .sec-paladin .smiteaura {
@@ -2078,36 +2114,38 @@
   font-size: 7.5px;
 }
 
-.sec-paladin .midrow .attacks {
-  flex: 0 0 62px;
+/* Extra Attack: a bare checkbox + label (no box border/tint) above the CD box */
+.sec-paladin .cdcol .attacks {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 7.5px;
+  white-space: nowrap;
 }
 
-/* right column: Lay on Hands + Level, then Divine Sense */
+/* right column: Lay on Hands + Lay on Hands Pool + Level, then the CD stack */
 .sec-paladin .rtop .layhands {
   flex: 1;
 }
 
-.sec-paladin .rtop .level {
-  flex: 0 0 50px;
-}
-
-.sec-paladin .divinesense {
+.sec-paladin .rtop .lohpool {
   flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
 }
 
-.sec-paladin .divinesense .circles {
-  font-size: 11px;
-  letter-spacing: 1px;
+.sec-paladin .rtop .level {
+  flex: 0 0 44px;
+}
+
+.sec-paladin .weaponmastery {
+  flex: 0 0 150px;
 }
 
 /* ---- Paladin: Oath Features full-width row ------------------------------ */
 .sec-paladin .r2 .oathfeat {
   flex: 1;
-  min-height: 40px;
+  min-height: 28px;
 }
 
 /* ---- Paladin: bottom grid (rows 4 + 5) — same shape as the Bard panel --- */
@@ -2130,7 +2168,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: 18px;
+  padding-top: 12px;
   padding-bottom: 4px;
 }
 
@@ -2190,6 +2228,164 @@
 .sec-paladin .colD .three .circles {
   font-size: 9px;
   letter-spacing: 1px;
+}
+
+/* ---- Paladin Spells: pre-printed prepared-spell list (single-use, page 19) */
+/* Same shape as the Cleric Spells list, but a half-caster's five level bands  */
+/* (1–5). Each band = a left number gutter + a 4-column grid of printed spells; */
+/* a spell entry is [checkbox][tag] then the name on tint. Column 4 carries the */
+/* subclass's always-prepared Oath spells as blank write-in lines. A casting-   */
+/* abbreviation legend closes the panel. (If a third half-caster reuses this,   */
+/* promote the block to style.css per the component rules.)                     */
+.sec-paladin-spells {
+  --panel: #daeef3;
+  border: 2px solid var(--ink);
+}
+
+/* summary strip: slot grid + stat boxes share the width via flex (the slot   */
+/* grid takes ~3× a box; every box grows equally to fill the row).            */
+.sec-paladin-spells .sp-top {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+
+.sec-paladin-spells .sp-top .slotgrid {
+  flex: 3 1 0;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sec-paladin-spells .sp-top .box {
+  flex: 1 1 0;
+  flex-direction: column;
+}
+
+.sec-paladin-spells .cs-list {
+  margin-top: 5px;
+  border: 1px solid var(--ink);
+}
+
+.sec-paladin-spells .cs-lvl {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 2px solid var(--ink);
+}
+
+.sec-paladin-spells .cs-lvl:last-child {
+  border-bottom: 0;
+}
+
+/* big level digit down the left edge of each band */
+.sec-paladin-spells .cs-num {
+  flex: 0 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lbl);
+}
+
+/* the four spell columns of a band */
+.sec-paladin-spells .cs-cols {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px 6px;
+  padding: 3px 4px;
+}
+
+.sec-paladin-spells .cs-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* one printed spell: [checkbox][tag] name */
+.sec-paladin-spells .cs-spell {
+  display: flex;
+  align-items: stretch;
+  min-height: 11px;
+  font-size: 7px;
+  color: var(--lbl);
+}
+
+.sec-paladin-spells .cs-spell .cbx {
+  flex: 0 0 13px;
+  width: 13px;
+  height: 13px;
+}
+
+.sec-paladin-spells .cs-tag {
+  flex: 0 0 12px;
+  height: auto;
+  margin-right: 3px;
+  border: 1px solid var(--ink);
+  border-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 0;
+  font-size: 6px;
+  line-height: 1;
+  color: var(--lbl);
+  background-color: white;
+}
+
+/* dual-cast tag: two casting times stacked in one box, soft-grey dotted     */
+/* divider — used for Action-or-Ritual (A / RT) paladin spells.               */
+.sec-paladin-spells .cs-tag.dual {
+  flex-direction: column;
+  padding: 0;
+}
+
+.sec-paladin-spells .cs-tag.dual>span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5px;
+  line-height: 1;
+}
+
+.sec-paladin-spells .cs-tag.dual>span:first-child {
+  border-bottom: 1px dotted #a9a9a9;
+  width: 100%;
+}
+
+.sec-paladin-spells .cs-name {
+  line-height: 1;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* Oath Spells write-in lines pinned to the band's bottom (column 4) */
+.sec-paladin-spells .cs-line {
+  margin-top: auto;
+  border-bottom: 1px solid var(--ink);
+  min-height: 9px;
+}
+
+/* casting-abbreviation legend footer */
+.sec-paladin-spells .cs-legend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 5px;
+  font-size: 6.5px;
+  color: var(--lbl);
+}
+
+.sec-paladin-spells .cs-legend>span {
+  display: flex;
+  align-items: center;
+}
+
+.sec-paladin-spells .cs-legend .cs-tag {
+  flex: 0 0 13px;
+  height: 9px;
+  border-left: 1px solid var(--ink);
+  justify-content: center;
+  padding-right: 0;
 }
 
 /* ==== ROGUE SHEET — pages 23–25. Page 23 reuses the shared sections           */
