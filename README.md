@@ -167,7 +167,7 @@ good read before a big change.
 | `Master.pdf` | The original 34-page PDF, kept as a layout and style reference. Left out of the GitHub Pages build. |
 | `CLAUDE.md`  | Deeper design notes (see above). |
 | `docs/`      | README screenshots. Left out of the live site. |
-| `tools/`     | `pngdiff.py`, which diffs two screenshots to confirm a change still renders the same. |
+| `tools/`     | Helper scripts. `shots.py` regenerates the README screenshots; `pngdiff.py` diffs two screenshots to confirm a change still renders the same. |
 
 ## License
 
