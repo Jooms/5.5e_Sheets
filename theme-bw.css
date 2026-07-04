@@ -1,0 +1,39 @@
+/* ============================================================================
+   Theme: BLACK & WHITE — the classic printout look, on screen and paper
+   ----------------------------------------------------------------------------
+   CSS-only; the #themepick handler in index.html just toggles `theme-bw` on
+   <body>. The mirror image of the Color theme: instead of making colour print,
+   it removes colour.
+
+   SCREEN: one grayscale filter over the whole sheet drains every section tint,
+   emblem and border to grey — a live preview of the printout. The filter is
+   screen-only: a filter makes .page monolithic and would break print pagination.
+
+   PRINT: we can't just let the browser drop the tint backgrounds, because the
+   Color theme relies on the user enabling "Background graphics" — with that on,
+   the tints would print. So B&W actively repaints every panel white and inks the
+   coloured borders black. That's colour-independent of the print setting, and
+   changes no box sizes, so pagination matches the default sheet exactly.
+   ========================================================================== */
+
+@media screen {
+  body.theme-bw .page {
+    filter: grayscale(1);
+  }
+}
+
+@media print {
+  /* Whiten every panel tint (page-1 --panel, page-2 --tab / background-color,
+     and the Money gems band / Equipment sub-boxes that read --tab) and ink the
+     coloured 2px borders. var(--panel,#fff) etc. all resolve to white now. */
+  body.theme-bw .section {
+    --panel: #fff;
+    --tab: #fff;
+    background-color: #fff;
+    border-color: var(--ink);
+  }
+
+  body.theme-bw .section>.tab {
+    background-color: #fff;
+  }
+}

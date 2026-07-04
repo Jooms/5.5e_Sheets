@@ -7,6 +7,11 @@
   <title>5e Character Sheet</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="sheet.css">
+  <!-- Themes. Each lives in its own file, scoped to body.theme-NAME, and is
+       inert until #themepick adds its class. Adding a theme = drop in a css file,
+       link it here, add an <option> below. Link after sheet.css. -->
+  <link rel="stylesheet" href="theme-color.css">
+  <link rel="stylesheet" href="theme-bw.css">
 </head>
 
 <body>
@@ -25,6 +30,11 @@
       <option value="sorcerer">Sorcerer</option>
       <option value="warlock">Warlock</option>
       <option value="wizard">Wizard</option>
+    </select>
+    <label for="themepick">Theme</label>
+    <select id="themepick">
+      <option value="color">Color</option>
+      <option value="bw">Black &amp; White</option>
     </select>
     <!-- 5.5eSheets attribution (screen-only; the .picker bar is hidden in print) -->
     <a class="attribution" href="https://github.com/Jooms/5.5e_Sheets" style="margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;
@@ -3707,6 +3717,34 @@
       });
       var initial = new URLSearchParams(window.location.search).get('class');
       if (initial && valid(initial)) picker.value = initial;
+      show(picker.value);
+    })();
+  </script>
+
+  <script>
+    /* Theme picker: the ONLY job is to flip a class on <body>. Each theme's look
+       lives entirely in its own screen-only CSS file (e.g. theme-scroll.css,
+       scoped to body.theme-scroll). "default" means no theme class. Mirrors the
+       class picker: swaps the theme-* class and syncs a ?theme= URL param. */
+    (function () {
+      var picker = document.getElementById('themepick');
+      function show(name) {
+        document.body.className = document.body.className
+          .replace(/\btheme-\S+/g, '').trim();
+        if (name && name !== 'default') document.body.classList.add('theme-' + name);
+      }
+      picker.addEventListener('change', function () {
+        show(picker.value);
+        try {
+          var url = new URL(window.location);
+          url.searchParams.set('theme', picker.value);
+          history.replaceState(null, '', url);
+        } catch (e) { /* replaceState may be blocked on file:// */ }
+      });
+      var initial = new URLSearchParams(window.location.search).get('theme');
+      if (initial && picker.querySelector('option[value="' + initial + '"]')) {
+        picker.value = initial;
+      }
       show(picker.value);
     })();
   </script>

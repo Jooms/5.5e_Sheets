@@ -1,0 +1,21 @@
+/* ============================================================================
+   Theme: COLOR — the colourful sheet, and it PRINTS in colour too
+   ----------------------------------------------------------------------------
+   CSS-only; the #themepick handler in index.html just toggles `theme-color` on
+   <body>. The sheet is already colourful on screen from the base styles, so this
+   theme's whole job is to make those section tints and emblems survive printing.
+   Browsers drop backgrounds when printing by default (print-color-adjust:
+   economy) — that's why the un-themed sheet comes out black-and-white. Forcing
+   `print-color-adjust: exact` keeps every colour on the page.
+
+   This is paint-only: it changes no box sizes, so pagination is identical to the
+   default sheet. `print-color-adjust` is an inherited property, so declaring it
+   once cascades to every section, box, emblem and tab below.
+   ========================================================================== */
+
+@media print {
+  body.theme-color {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
