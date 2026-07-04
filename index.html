@@ -53,8 +53,14 @@
       <sheet-section name="character"></sheet-section>
 
       <!-- ===== Barbarian (class panel) — worked example ===================== -->
+      <!-- 2024 (5.5e) rules: Weapon Mastery is a new level-1 feature; Primal    -->
+      <!-- Knowledge (L3) and Instinctive Pounce (L7) are new; Brutal Critical → -->
+      <!-- Brutal Strike (L9) with Improved Brutal Strike (L13/17); the Totem    -->
+      <!-- box (Totem Warrior only) is replaced by Weapon Masteries and Brutal   -->
+      <!-- Critical Dice → Brutal Strike Dice; Epic Boon added at the bottom     -->
+      <!-- like the Cleric/Paladin.                                              -->
       <div class="section sec-barbarian">
-        <div class="tab"><span>Barbarian (old)</span></div>
+        <div class="tab"><span>Barbarian</span></div>
         <div class="body">
 
           <!-- Row 1: header inputs -->
@@ -65,37 +71,44 @@
             <div class="box level"><span class="lbl">Level</span></div>
           </div>
 
-          <!-- Row 2: 4×3 feature checklist + Rages -->
+          <!-- Row 2: feature checklist (2024 features, level order) + Extra    -->
+          <!-- Attack over Rages (Extra Attack is a bare check, Paladin idiom).  -->
           <div class="row r2">
             <div class="features">
               <div class="feat"><span class="cbx"></span>Rage</div>
-              <div class="feat"><span class="cbx"></span>Danger Sense</div>
-              <div class="feat"><span class="cbx"></span>Feral Instinct</div>
-              <div class="feat"><span class="cbx"></span>Persistent Rage</div>
-
               <div class="feat"><span class="cbx"></span>Unarmored Defense</div>
-              <div class="feat"><span class="cbx"></span>Extra Attack</div>
-              <div class="feat"><span class="cbx"></span>Brutal Critical</div>
-              <div class="feat"><span class="cbx"></span>Indomitable Might</div>
+              <div class="feat"><span class="cbx"></span>Weapon Mastery</div>
+              <div class="feat"><span class="cbx"></span>Danger Sense</div>
 
               <div class="feat"><span class="cbx"></span>Reckless Attack</div>
+              <div class="feat"><span class="cbx"></span>Primal Knowledge</div>
               <div class="feat"><span class="cbx"></span>Fast Movement</div>
+              <div class="feat"><span class="cbx"></span>Feral Instinct</div>
+
+              <div class="feat"><span class="cbx"></span>Instinctive Pounce</div>
+              <div class="feat"><span class="cbx"></span>Brutal Strike</div>
               <div class="feat"><span class="cbx"></span>Relentless Rage</div>
+              <div class="feat"><span class="cbx"></span>Impr. Brutal Strike</div>
+
+              <div class="feat"><span class="cbx"></span>Persistent Rage</div>
+              <div class="feat"><span class="cbx"></span>Indomitable Might</div>
               <div class="feat"><span class="cbx"></span>Primal Champion</div>
             </div>
-            <div class="box rages">
-              <span class="lbl center">Rages</span>
-              <div class="circles">⑥ ⑤ ④ ③ ② ①</div>
+            <div class="ragecol">
+              <div class="attacks"><span class="cbx"></span>Extra Attack</div>
+              <div class="box rages">
+                <span class="lbl center">Rages</span>
+                <div class="circles">⑥ ⑤ ④ ③ ② ①</div>
+              </div>
             </div>
           </div>
 
-          <!-- Row 3: five labeled boxes -->
+          <!-- Row 3: four labeled boxes (Weapon Masteries takes the freed space) -->
           <div class="row r3">
-            <div class="box"><span class="lbl">Number of Attacks</span></div>
             <div class="box"><span class="lbl">Unarmored Defense</span></div>
             <div class="box"><span class="lbl">Movement</span></div>
-            <div class="box"><span class="lbl">Brutal Critical Dice</span></div>
-            <div class="box totem"><span class="lbl">Totem</span></div>
+            <div class="box"><span class="lbl">Brutal Strike Dice</span></div>
+            <div class="box weaponmastery"><span class="lbl">Weapon Masteries</span></div>
           </div>
 
           <!-- Rows 4 + 5: stacked left block, two tall rest boxes, right block -->
@@ -119,7 +132,7 @@
             </div>
 
             <div class="colD">
-              <div class="box wide"></div>
+              <div class="box wide"><span class="lbl left">Epic Boon</span></div>
               <div class="splitrow">
                 <div class="box"></div>
                 <div class="box tall three"><span class="circles">③②①</span></div>

@@ -81,8 +81,26 @@
   font-size: 7px;
 }
 
-.sec-barbarian .rages {
+/* right of the checklist: a bare "Extra Attack" check (Paladin idiom) sitting */
+/* above the Rages counter box, the pair filling the checklist's height.       */
+.sec-barbarian .ragecol {
   flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sec-barbarian .ragecol .attacks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 7.5px;
+  white-space: nowrap;
+}
+
+.sec-barbarian .rages {
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -95,13 +113,13 @@
   letter-spacing: 2px;
 }
 
-/* ---- Barbarian: five labeled boxes -------------------------------------- */
+/* ---- Barbarian: four labeled boxes (Weapon Masteries takes the freed space) */
 .sec-barbarian .r3 .box {
   flex: 1;
 }
 
-.sec-barbarian .r3 .totem {
-  flex: 0 0 182px;
+.sec-barbarian .r3 .weaponmastery {
+  flex: 2;
 }
 
 /* ---- Barbarian: bottom grid (rows 4 + 5) -------------------------------- */
