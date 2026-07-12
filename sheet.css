@@ -1481,6 +1481,26 @@
   position: relative;
 }
 
+/* slot cell with the circle count split into individual cells, divided by soft
+   grey dotted rules (like the weapon-bar separators) */
+.sec-cleric-spells .slotgrid .slot .divc {
+  display: flex;
+}
+
+.sec-cleric-spells .slotgrid .slot .divc span {
+  flex: 1;
+}
+
+.sec-cleric-spells .slotgrid .slot .divc span + span {
+  border-left: 1px dotted #a9a9a9;
+}
+
+/* suppress a divider where the count is always filled (e.g. the guaranteed
+   two 1st-level slots) */
+.sec-cleric-spells .slotgrid .slot .divc span.nodiv {
+  border-left: 0;
+}
+
 .sec-cleric-spells .ptscol {
   position: absolute;
   top: 2px;
@@ -1491,23 +1511,27 @@
   color: var(--lbl);
 }
 
-.sec-cleric-spells .cs-list {
+.sec-cleric-spells .cs-list,
+.sec-cleric-cantrips .cs-list {
   margin-top: 5px;
   border: 1px solid var(--ink);
 }
 
-.sec-cleric-spells .cs-lvl {
+.sec-cleric-spells .cs-lvl,
+.sec-cleric-cantrips .cs-lvl {
   display: flex;
   align-items: stretch;
   border-bottom: 2px solid var(--ink);
 }
 
-.sec-cleric-spells .cs-lvl:last-child {
+.sec-cleric-spells .cs-lvl:last-child,
+.sec-cleric-cantrips .cs-lvl:last-child {
   border-bottom: 0;
 }
 
 /* big level digit down the left edge of each band */
-.sec-cleric-spells .cs-num {
+.sec-cleric-spells .cs-num,
+.sec-cleric-cantrips .cs-num {
   flex: 0 0 15px;
   display: flex;
   align-items: center;
@@ -1518,7 +1542,8 @@
 }
 
 /* the four spell columns of a band */
-.sec-cleric-spells .cs-cols {
+.sec-cleric-spells .cs-cols,
+.sec-cleric-cantrips .cs-cols {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1526,13 +1551,15 @@
   padding: 3px 4px;
 }
 
-.sec-cleric-spells .cs-col {
+.sec-cleric-spells .cs-col,
+.sec-cleric-cantrips .cs-col {
   display: flex;
   flex-direction: column;
 }
 
 /* one printed spell: [checkbox][tag] name */
-.sec-cleric-spells .cs-spell {
+.sec-cleric-spells .cs-spell,
+.sec-cleric-cantrips .cs-spell {
   display: flex;
   align-items: stretch;
   min-height: 11px;
@@ -1540,13 +1567,15 @@
   color: var(--lbl);
 }
 
-.sec-cleric-spells .cs-spell .cbx {
+.sec-cleric-spells .cs-spell .cbx,
+.sec-cleric-cantrips .cs-spell .cbx {
   flex: 0 0 13px;
   width: 13px;
   height: 13px;
 }
 
-.sec-cleric-spells .cs-tag {
+.sec-cleric-spells .cs-tag,
+.sec-cleric-cantrips .cs-tag {
   flex: 0 0 12px;
   height: auto;
   margin-right: 3px;
@@ -1562,7 +1591,8 @@
   background-color: white;
 }
 
-.sec-cleric-spells .cs-name {
+.sec-cleric-spells .cs-name,
+.sec-cleric-cantrips .cs-name {
   line-height: 1;
   white-space: nowrap;
   align-self: center;
@@ -1576,14 +1606,40 @@
   margin-top: 2px;
 }
 
-.sec-cleric-spells .cs-line {
+/* blank write-in row: an empty [cbx][tag] pair over a ruled name line,
+   mirroring a real .cs-spell so subclass spells fill in the same shape */
+.sec-cleric-spells .cs-line,
+.sec-cleric-cantrips .cs-line {
   margin-top: auto;
   border-bottom: 1px solid var(--ink);
-  min-height: 9px;
+  min-height: 11px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sec-cleric-spells .cs-line::before,
+.sec-cleric-cantrips .cs-line::before {
+  content: "";
+  flex: 0 0 11px;
+  height: 11px;
+  border: 1px solid var(--ink);
+  background-color: white;
+}
+
+.sec-cleric-spells .cs-line::after,
+.sec-cleric-cantrips .cs-line::after {
+  content: "";
+  flex: 0 0 11px;
+  height: 11px;
+  margin-right: 3px;
+  border: 1px solid var(--ink);
+  border-left: 0;
+  background-color: white;
 }
 
 /* casting-abbreviation legend footer */
-.sec-cleric-spells .cs-legend {
+.sec-cleric-spells .cs-legend,
+.sec-cleric-cantrips .cs-legend {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1592,17 +1648,26 @@
   color: var(--lbl);
 }
 
-.sec-cleric-spells .cs-legend>span {
+.sec-cleric-spells .cs-legend>span,
+.sec-cleric-cantrips .cs-legend>span {
   display: flex;
   align-items: center;
 }
 
-.sec-cleric-spells .cs-legend .cs-tag {
+.sec-cleric-spells .cs-legend .cs-tag,
+.sec-cleric-cantrips .cs-legend .cs-tag {
   flex: 0 0 13px;
   height: 9px;
   border-left: 1px solid var(--ink);
   justify-content: center;
   padding-right: 0;
+}
+
+/* prepared/always-prepped key sitting atop the first band */
+.sec-cleric-spells .cs-legend.cs-top,
+.sec-cleric-cantrips .cs-legend.cs-top {
+  justify-content: space-evenly;
+  border-bottom: 2px solid var(--ink);
 }
 
 /* ========================================================================== */

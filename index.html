@@ -393,7 +393,69 @@
       <!-- CLERIC SHEET — page 8 (spells): Cantrips / Cleric Spells                 -->
       <!-- ====================================================================== -->
 
-      <sheet-section name="cantrips"></sheet-section>
+      <!-- ===== Cantrips (single-use: pre-printed cleric cantrip list, styled
+           like a Cleric Spells band) ======================================= -->
+      <div class="section sec-cantrips sec-cleric-cantrips">
+        <div class="tab"><span>Cantrips</span></div>
+        <div class="body">
+          <div class="cs-list">
+
+            <!-- prepared/always-prepped legend -->
+            <div class="cs-legend cs-top">
+              <span><span class="cs-tag">P</span>Prepared</span>
+              <span><span class="cs-tag">Z</span>Always Prepped</span>
+            </div>
+
+            <div class="cs-lvl">
+              <div class="cs-num">0</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span
+                      class="cs-name">Guidance</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span
+                      class="cs-name">Light</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span
+                      class="cs-name">Mending</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span
+                      class="cs-name">Resistance</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Sacred
+                      Flame</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Spare
+                      the Dying</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span
+                      class="cs-name">Thaumaturgy</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Toll
+                      the Dead</span></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Word
+                      of Radiance</span></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- casting-abbreviation legend -->
+            <div class="cs-legend">
+              <span><span class="cs-tag">A</span>Action</span>
+              <span><span class="cs-tag">BA</span>Bonus Action</span>
+              <span><span class="cs-tag">R</span>Reaction</span>
+              <span><span class="cs-tag">RT</span>Ritual</span>
+              <span><span class="cs-tag">T</span>Time to cast</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       <!-- ===== Cleric Spells (single-use: pre-printed prepared-spell list) === -->
       <div class="section sec-cleric-spells">
@@ -403,25 +465,31 @@
           <!-- summary strip: spell-slot grid + per-level caster stats -->
           <div class="sp-top">
             <div class="slotgrid">
-              <div class="slot"><span class="n">1</span><span class="c">④③②①</span></div>
-              <div class="slot"><span class="n">4</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">7</span><span class="c">②①</span></div>
-              <div class="slot"><span class="n">2</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">5</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">8</span><span class="c">①</span></div>
-              <div class="slot"><span class="n">3</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">6</span><span class="c">②①</span></div>
-              <div class="slot"><span class="n">9</span><span class="c">①</span></div>
+              <div class="slot"><span class="n">1</span><span class="c divc"><span>④</span><span>③</span><span>②</span><span class="nodiv">①</span></span></div>
+              <div class="slot"><span class="n">4</span><span class="c divc"><span>③</span><span>②</span><span>①</span></span></div>
+              <div class="slot"><span class="n">7</span><span class="c divc"><span>②</span><span>①</span></span></div>
+              <div class="slot"><span class="n">2</span><span class="c divc"><span>③</span><span>②</span><span class="nodiv">①</span></span></div>
+              <div class="slot"><span class="n">5</span><span class="c divc"><span>③</span><span>②</span><span>①</span></span></div>
+              <div class="slot"><span class="n">8</span><span class="c divc"><span>①</span></span></div>
+              <div class="slot"><span class="n">3</span><span class="c divc"><span>③</span><span>②</span><span class="nodiv">①</span></span></div>
+              <div class="slot"><span class="n">6</span><span class="c divc"><span>②</span><span>①</span></span></div>
+              <div class="slot"><span class="n">9</span><span class="c divc"><span>①</span></span></div>
             </div>
             <div class="box sk"><span class="lbl">Max Prepped</span></div>
             <div class="box"><span class="lbl">Max Lvl</span></div>
             <div class="box blank"></div>
-            <div class="box"><span class="lbl">Attack</span></div>
-            <div class="box"><span class="lbl">DC</span></div>
+            <div class="box"><span class="lbl">Spell Attack</span></div>
+            <div class="box"><span class="lbl">Save DC</span></div>
           </div>
 
           <!-- nine level bands (1–9), each a number gutter + 4-column spell grid -->
           <div class="cs-list">
+
+            <!-- prepared/always-prepped legend -->
+            <div class="cs-legend cs-top">
+              <span><span class="cs-tag">P</span>Prepared</span>
+              <span><span class="cs-tag">Z</span>Always Prepped</span>
+            </div>
 
             <!-- Level 1 -->
             <div class="cs-lvl">
@@ -583,6 +651,7 @@
                       class="cs-name">Water Walk</span></div>
                   <div class="cs-line"></div>
                   <div class="cs-line"></div>
+                  <div class="cs-line"></div>
                 </div>
               </div>
             </div>
@@ -649,26 +718,27 @@
                       class="cs-name">Greater Restoration</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span
                       class="cs-name">Hallow</span></div>
-                </div>
-                <div class="cs-col">
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span
                       class="cs-name">Holy Weapon</span></div>
+                </div>
+                <div class="cs-col">
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span
                       class="cs-name">Insect Plague</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span
                       class="cs-name">Legend Lore</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Mass
                       Cure Wounds</span></div>
-                </div>
-                <div class="cs-col">
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span
                       class="cs-name">Planar Binding</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span
                       class="cs-name">Raise Dead</span></div>
+                </div>
+                <div class="cs-col">
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">T</span><span
                       class="cs-name">Scrying</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span
                       class="cs-name">Summon Celestial</span></div>
+                  <div class="cs-line"></div>
                   <div class="cs-line"></div>
                 </div>
               </div>
@@ -802,7 +872,6 @@
               <span><span class="cs-tag">R</span>Reaction</span>
               <span><span class="cs-tag">RT</span>Ritual</span>
               <span><span class="cs-tag">T</span>Time to cast</span>
-              <span><span class="cs-tag">Z</span>Always Prepped</span>
             </div>
 
           </div>
@@ -1490,10 +1559,10 @@
               <div class="slot"><span class="n">4</span><span class="c">③②①</span></div>
               <div class="slot"><span class="n">5</span><span class="c">②①</span></div>
             </div>
-            <div class="box"><span class="lbl">Max Prepped</span></div>
+            <div class="box sk"><span class="lbl">Max Prepped</span></div>
             <div class="box"><span class="lbl">Max Lvl</span></div>
-            <div class="box"><span class="lbl">Attack</span></div>
-            <div class="box"><span class="lbl">DC</span></div>
+            <div class="box"><span class="lbl">Spell Attack</span></div>
+            <div class="box"><span class="lbl">Save DC</span></div>
           </div>
 
           <!-- five level bands (1-5); each = a number gutter + 4-column spell grid -->
@@ -2596,8 +2665,8 @@
             <div class="box sk"><span class="lbl">Max Prepped</span></div>
             <div class="box"><span class="lbl">Max Lvl</span></div>
             <div class="box blank"></div>
-            <div class="box"><span class="lbl">Attack</span></div>
-            <div class="box"><span class="lbl">DC</span></div>
+            <div class="box"><span class="lbl">Spell Attack</span></div>
+            <div class="box"><span class="lbl">Save DC</span></div>
             <div class="box pts"><span class="lbl">Spell Pts.</span><span class="ptscol">6<br>7<br>8<br>9</span></div>
           </div>
 
@@ -2840,8 +2909,8 @@
             <div class="box sk"><span class="lbl">Max Prepped</span></div>
             <div class="box"><span class="lbl">Max Lvl</span></div>
             <div class="box blank"></div>
-            <div class="box"><span class="lbl">Attack</span></div>
-            <div class="box"><span class="lbl">DC</span></div>
+            <div class="box"><span class="lbl">Spell Attack</span></div>
+            <div class="box"><span class="lbl">Save DC</span></div>
             <div class="box pts"><span class="lbl">Spell Pts.</span><span class="ptscol">6<br>7<br>8<br>9</span></div>
           </div>
 
@@ -3234,7 +3303,7 @@
           <div class="box ib"><span class="lbl">Initiative Bonus</span></div>
         </div>
 
-        <!-- skills grid: 4 skill columns + tools/kit + skill features -->
+        <!-- skills grid: 4 skill columns + tools + skill features -->
         <div class="sk-grid">
           <div class="sk-col">
             <div class="box skill"><span class="mod"></span><span class="name">Acrobatics <span
@@ -3283,9 +3352,9 @@
                       class="ori">(WIS)</span></span><span class="cbx"></span></div>
               </div>
               <div class="sk-tk">
-                <div class="box tk"><span class="lbl">tools/kit</span></div>
-                <div class="box tk"><span class="lbl">tools/kit</span></div>
-                <div class="box tk"><span class="lbl">tools/kit</span></div>
+                <div class="box tk"><span class="lbl">tools</span></div>
+                <div class="box tk"><span class="lbl">tools</span></div>
+                <div class="box tk"><span class="lbl">tools</span></div>
               </div>
             </div>
             <div class="box skfeat"><span class="lbl">Skill Feature</span></div>
@@ -3592,8 +3661,8 @@
           <div class="box sk"><span class="lbl">Max Prepped</span></div>
           <div class="box"><span class="lbl">Max Lvl</span></div>
           <div class="box blank"></div>
-          <div class="box"><span class="lbl">Attack</span></div>
-          <div class="box"><span class="lbl">DC</span></div>
+          <div class="box"><span class="lbl">Spell Attack</span></div>
+          <div class="box"><span class="lbl">Save DC</span></div>
           <div class="box pts"><span class="lbl">Spell Pts.</span><span class="ptscol">6<br>7<br>8<br>9</span></div>
         </div>
 
