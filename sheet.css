@@ -334,8 +334,26 @@
 .sec-vitals .maxhp {
   flex: 1.2;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   padding-top: 4px;
+}
+
+.sec-vitals .maxhp > .lbl {
+  text-align: center;
+}
+
+/* dotted split: a smaller Temp HP strip along the bottom of the Max HP box */
+.sec-vitals .maxhp .temphp {
+  margin: auto -4px -3px -4px;
+  padding: 2px 4px;
+  border-top: 1px dotted var(--ink);
+  text-align: right;
+}
+
+.sec-vitals .maxhp .temphp > .lbl {
+  font-size: 6.5px;
+  color: var(--lbl);
+  line-height: 1;
 }
 
 .sec-vitals .hitdice {
@@ -1266,15 +1284,11 @@
 }
 
 .sec-cleric .r1 .domain {
-  flex: 0 0 86px;
+  flex: 1;
 }
 
 .sec-cleric .r1 .deity {
   flex: 1;
-}
-
-.sec-cleric .r1 .strike {
-  flex: 0 0 118px;
 }
 
 .sec-cleric .r1 .level {
@@ -1284,13 +1298,13 @@
 /* choice boxes (Divine Order, Blessed Strikes): corner label + centered
    printed options the player circles */
 .sec-cleric .r1 .divorder,
-.sec-cleric .r1 .strike {
+.sec-cleric .mid-r1 .strike {
   flex-direction: column;
   justify-content: space-between;
 }
 
 .sec-cleric .r1 .divorder .opts,
-.sec-cleric .r1 .strike .opts {
+.sec-cleric .mid-r1 .strike .opts {
   font-size: 6.5px;
   line-height: 1.5;
   color: var(--lbl);
@@ -1324,9 +1338,38 @@
   gap: 6px;
 }
 
+/* Channel Divinity uses track: circles split into cells with soft dotted rules
+   (same look as the cleric spell-slot boxes); no rule before the guaranteed 1. */
+.sec-cleric .mid-r1 .channel .circles.divc {
+  display: flex;
+  width: 100%;
+  letter-spacing: normal;
+}
+
+.sec-cleric .mid-r1 .channel .circles.divc span {
+  flex: 1;
+  text-align: center;
+}
+
+.sec-cleric .mid-r1 .channel .circles.divc span + span {
+  border-left: 1px dotted #a9a9a9;
+}
+
+.sec-cleric .mid-r1 .channel .circles.divc span.nodiv {
+  border-left: 0;
+}
+
 .sec-cleric .mid-r1 .turnundead {
-  flex: 0 0 92px;
+  flex: 0 0 70px;
   flex-direction: column;
+}
+
+.sec-cleric .mid-r1 .strike {
+  flex: 0 0 92px;
+}
+
+.sec-cleric .mid-r1 .mid-extra {
+  flex: 1;
 }
 
 .sec-cleric .mid-r1 .turnundead .dc {
@@ -1345,7 +1388,7 @@
 }
 
 .sec-cleric .mid-r1 .divspark {
-  flex: 1;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -1353,13 +1396,33 @@
   padding-bottom: 3px;
 }
 
+.sec-cleric .mid-r1 .divspark .circles {
+  align-self: flex-end;
+}
+
 .sec-cleric .mid-r2 {
   flex: 1;
   align-items: stretch;
 }
 
+/* one Domain Features box split into 3 write-in cells by soft dotted rules;
+   the label floats in the corner so the three cells stay equal. */
 .sec-cleric .mid-r2 .dcd {
   flex: 1;
+}
+
+.sec-cleric .mid-r2 .dcd > .lbl {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+.sec-cleric .mid-r2 .dcd .fc {
+  flex: 1;
+}
+
+.sec-cleric .mid-r2 .dcd .fc + .fc {
+  border-left: 1px dotted #a9a9a9;
 }
 
 .sec-cleric .circles {

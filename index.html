@@ -303,9 +303,6 @@
             </div>
             <div class="box domain"><span class="lbl">Domain</span></div>
             <div class="box deity"><span class="lbl">Deity</span></div>
-            <div class="box strike">
-              <span class="lbl">Blessed Strikes</span>
-            </div>
             <div class="box level"><span class="lbl">Level</span></div>
           </div>
 
@@ -315,11 +312,14 @@
               <div class="row mid-r1">
                 <div class="box channel">
                   <span class="lbl">Channel Divinity</span>
-                  <span class="circles">④③②①</span>
+                  <span class="circles divc"><span>④</span><span>③</span><span>②</span><span class="nodiv">①</span></span>
                 </div>
                 <div class="box turnundead">
                   <span class="lbl">Turn/Sear Undead</span>
                   <span class="dc">DC</span>
+                </div>
+                <div class="box strike">
+                  <span class="lbl">Blessed Strikes</span>
                 </div>
                 <div class="box divint">
                   <span class="lbl center">Divine Intervention</span>
@@ -327,12 +327,18 @@
                 </div>
                 <div class="box divspark">
                   <span class="lbl center">Divine Spark</span>
-                  <span class="circles">④③②① d8</span>
+                  <span class="circles">d8</span>
                 </div>
+                <div class="box mid-extra"></div>
               </div>
               <div class="row mid-r2">
-                <div class="box dcd"><span class="lbl">Domain Channel Divinity</span></div>
-                <div class="box dcd"><span class="lbl">Domain Channel Divinity</span></div>
+                <div class="box dcd">
+                  <span class="lbl">Domain Features</span>
+                  <div class="fc"></div>
+                  <div class="fc"></div>
+                  <div class="fc"></div>
+                  <div class="fc"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -340,10 +346,7 @@
           <!-- Rows 4 + 5: stacked left block, two tall rest boxes, right block -->
           <div class="row r4">
             <div class="colA">
-              <div class="box">
-                <span class="lbl">Secondary Class</span>
-                <span class="lbl right">Level</span>
-              </div>
+              <div class="box"></div>
               <div class="box"></div>
             </div>
 
@@ -3099,7 +3102,10 @@
 
         <!-- HP / hit dice / death saves / healing potions / current / temp -->
         <div class="row vit-top">
-          <div class="box maxhp"><span class="lbl">Max HP</span></div>
+          <div class="box maxhp">
+            <span class="lbl">Max HP</span>
+            <div class="temphp"><span class="lbl">Temp Max HP</span></div>
+          </div>
 
           <div class="box hitdice">
             <div class="row hd-head">
