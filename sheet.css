@@ -1546,21 +1546,25 @@
 
 /* slot cell with the circle count split into individual cells, divided by soft
    grey dotted rules (like the weapon-bar separators) */
-.sec-cleric-spells .slotgrid .slot .divc {
+.sec-cleric-spells .slotgrid .slot .divc,
+.sec-paladin-spells .slotgrid .slot .divc {
   display: flex;
 }
 
-.sec-cleric-spells .slotgrid .slot .divc span {
+.sec-cleric-spells .slotgrid .slot .divc span,
+.sec-paladin-spells .slotgrid .slot .divc span {
   flex: 1;
 }
 
-.sec-cleric-spells .slotgrid .slot .divc span + span {
+.sec-cleric-spells .slotgrid .slot .divc span + span,
+.sec-paladin-spells .slotgrid .slot .divc span + span {
   border-left: 1px dotted #a9a9a9;
 }
 
 /* suppress a divider where the count is always filled (e.g. the guaranteed
    two 1st-level slots) */
-.sec-cleric-spells .slotgrid .slot .divc span.nodiv {
+.sec-cleric-spells .slotgrid .slot .divc span.nodiv,
+.sec-paladin-spells .slotgrid .slot .divc span.nodiv {
   border-left: 0;
 }
 
@@ -1575,26 +1579,30 @@
 }
 
 .sec-cleric-spells .cs-list,
-.sec-cleric-cantrips .cs-list {
+.sec-cleric-cantrips .cs-list,
+.sec-paladin-cantrips .cs-list {
   margin-top: 5px;
   border: 1px solid var(--ink);
 }
 
 .sec-cleric-spells .cs-lvl,
-.sec-cleric-cantrips .cs-lvl {
+.sec-cleric-cantrips .cs-lvl,
+.sec-paladin-cantrips .cs-lvl {
   display: flex;
   align-items: stretch;
   border-bottom: 2px solid var(--ink);
 }
 
 .sec-cleric-spells .cs-lvl:last-child,
-.sec-cleric-cantrips .cs-lvl:last-child {
+.sec-cleric-cantrips .cs-lvl:last-child,
+.sec-paladin-cantrips .cs-lvl:last-child {
   border-bottom: 0;
 }
 
 /* big level digit down the left edge of each band */
 .sec-cleric-spells .cs-num,
-.sec-cleric-cantrips .cs-num {
+.sec-cleric-cantrips .cs-num,
+.sec-paladin-cantrips .cs-num {
   flex: 0 0 15px;
   display: flex;
   align-items: center;
@@ -1606,7 +1614,8 @@
 
 /* the four spell columns of a band */
 .sec-cleric-spells .cs-cols,
-.sec-cleric-cantrips .cs-cols {
+.sec-cleric-cantrips .cs-cols,
+.sec-paladin-cantrips .cs-cols {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1615,14 +1624,16 @@
 }
 
 .sec-cleric-spells .cs-col,
-.sec-cleric-cantrips .cs-col {
+.sec-cleric-cantrips .cs-col,
+.sec-paladin-cantrips .cs-col {
   display: flex;
   flex-direction: column;
 }
 
 /* one printed spell: [checkbox][tag] name */
 .sec-cleric-spells .cs-spell,
-.sec-cleric-cantrips .cs-spell {
+.sec-cleric-cantrips .cs-spell,
+.sec-paladin-cantrips .cs-spell {
   display: flex;
   align-items: stretch;
   min-height: 11px;
@@ -1631,14 +1642,16 @@
 }
 
 .sec-cleric-spells .cs-spell .cbx,
-.sec-cleric-cantrips .cs-spell .cbx {
+.sec-cleric-cantrips .cs-spell .cbx,
+.sec-paladin-cantrips .cs-spell .cbx {
   flex: 0 0 13px;
   width: 13px;
   height: 13px;
 }
 
 .sec-cleric-spells .cs-tag,
-.sec-cleric-cantrips .cs-tag {
+.sec-cleric-cantrips .cs-tag,
+.sec-paladin-cantrips .cs-tag {
   flex: 0 0 12px;
   height: auto;
   margin-right: 3px;
@@ -1655,7 +1668,8 @@
 }
 
 .sec-cleric-spells .cs-name,
-.sec-cleric-cantrips .cs-name {
+.sec-cleric-cantrips .cs-name,
+.sec-paladin-cantrips .cs-name {
   line-height: 1;
   white-space: nowrap;
   align-self: center;
@@ -1672,7 +1686,9 @@
 /* blank write-in row: an empty [cbx][tag] pair over a ruled name line,
    mirroring a real .cs-spell so subclass spells fill in the same shape */
 .sec-cleric-spells .cs-line,
-.sec-cleric-cantrips .cs-line {
+.sec-cleric-cantrips .cs-line,
+.sec-paladin-cantrips .cs-line,
+.sec-paladin-spells .cs-line {
   margin-top: auto;
   border-bottom: 1px solid var(--ink);
   min-height: 11px;
@@ -1681,7 +1697,9 @@
 }
 
 .sec-cleric-spells .cs-line::before,
-.sec-cleric-cantrips .cs-line::before {
+.sec-cleric-cantrips .cs-line::before,
+.sec-paladin-cantrips .cs-line::before,
+.sec-paladin-spells .cs-line::before {
   content: "";
   flex: 0 0 11px;
   height: 11px;
@@ -1690,7 +1708,9 @@
 }
 
 .sec-cleric-spells .cs-line::after,
-.sec-cleric-cantrips .cs-line::after {
+.sec-cleric-cantrips .cs-line::after,
+.sec-paladin-cantrips .cs-line::after,
+.sec-paladin-spells .cs-line::after {
   content: "";
   flex: 0 0 11px;
   height: 11px;
@@ -1702,7 +1722,8 @@
 
 /* casting-abbreviation legend footer */
 .sec-cleric-spells .cs-legend,
-.sec-cleric-cantrips .cs-legend {
+.sec-cleric-cantrips .cs-legend,
+.sec-paladin-cantrips .cs-legend {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1712,13 +1733,15 @@
 }
 
 .sec-cleric-spells .cs-legend>span,
-.sec-cleric-cantrips .cs-legend>span {
+.sec-cleric-cantrips .cs-legend>span,
+.sec-paladin-cantrips .cs-legend>span {
   display: flex;
   align-items: center;
 }
 
 .sec-cleric-spells .cs-legend .cs-tag,
-.sec-cleric-cantrips .cs-legend .cs-tag {
+.sec-cleric-cantrips .cs-legend .cs-tag,
+.sec-paladin-cantrips .cs-legend .cs-tag {
   flex: 0 0 13px;
   height: 9px;
   border-left: 1px solid var(--ink);
@@ -1728,7 +1751,9 @@
 
 /* prepared/always-prepped key sitting atop the first band */
 .sec-cleric-spells .cs-legend.cs-top,
-.sec-cleric-cantrips .cs-legend.cs-top {
+.sec-cleric-cantrips .cs-legend.cs-top,
+.sec-paladin-cantrips .cs-legend.cs-top,
+.sec-paladin-spells .cs-legend.cs-top {
   justify-content: space-evenly;
   border-bottom: 2px solid var(--ink);
 }
@@ -2506,27 +2531,6 @@
   background-color: white;
 }
 
-/* dual-cast tag: two casting times stacked in one box, soft-grey dotted     */
-/* divider — used for Action-or-Ritual (A / RT) paladin spells.               */
-.sec-paladin-spells .cs-tag.dual {
-  flex-direction: column;
-  padding: 0;
-}
-
-.sec-paladin-spells .cs-tag.dual>span {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5px;
-  line-height: 1;
-}
-
-.sec-paladin-spells .cs-tag.dual>span:first-child {
-  border-bottom: 1px dotted #a9a9a9;
-  width: 100%;
-}
-
 .sec-paladin-spells .cs-name {
   line-height: 1;
   white-space: nowrap;
@@ -2534,12 +2538,6 @@
 }
 
 /* Oath Spells write-in lines pinned to the band's bottom (column 4) */
-.sec-paladin-spells .cs-line {
-  margin-top: auto;
-  border-bottom: 1px solid var(--ink);
-  min-height: 9px;
-}
-
 /* casting-abbreviation legend footer */
 .sec-paladin-spells .cs-legend {
   display: flex;

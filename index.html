@@ -5,6 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>5e Character Sheet</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DK8B9M8FB9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DK8B9M8FB9');
+  </script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="sheet.css">
   <!-- Themes. Each lives in its own file, scoped to body.theme-NAME, and is
@@ -1508,39 +1516,51 @@
       <!-- PALADIN SHEET — page 19 (spells): Cantrips / Paladin Spells             -->
       <!-- ====================================================================== -->
 
-      <!-- ===== Cantrips (spellcaster common) =============================== -->
-      <div class="section sec-cantrips">
+      <!-- ===== Cantrips (single-use: styled like the Cleric cantrip band, but
+           Paladins have no class cantrips so every cell is a blank .cs-line
+           write-in row for cantrips gained from feats or subclass) ========= -->
+      <div class="section sec-cantrips sec-paladin-cantrips">
         <div class="tab"><span>Cantrips</span></div>
         <div class="body">
-          <div class="sp-cols">
-            <div class="sp-col">
-              <div class="sp-head"><span class="f-cast">Casting</span><span class="f-name">Name</span><span
-                  class="f-save">Save</span><span class="f-dmg">Damage</span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
+          <div class="cs-list">
+
+            <!-- prepared/always-prepped legend -->
+            <div class="cs-legend cs-top">
+              <span><span class="cs-tag">P</span>Prepared</span>
+              <span><span class="cs-tag">Z</span>Always Prepped</span>
             </div>
-            <div class="sp-col">
-              <div class="sp-head"><span class="f-cast">Casting</span><span class="f-name">Name</span><span
-                  class="f-save">Save</span><span class="f-dmg">Damage</span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
-              <div class="sp-row"><span class="f-cast"></span><span class="f-name"></span><span
-                  class="f-save"></span><span class="f-dmg"></span></div>
+
+            <div class="cs-lvl">
+              <div class="cs-num">0</div>
+              <div class="cs-cols">
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+                <div class="cs-col">
+                  <div class="cs-line"></div>
+                  <div class="cs-line"></div>
+                </div>
+              </div>
             </div>
+
+            <!-- casting-abbreviation legend -->
+            <div class="cs-legend">
+              <span><span class="cs-tag">A</span>Action</span>
+              <span><span class="cs-tag">BA</span>Bonus Action</span>
+              <span><span class="cs-tag">R</span>Reaction</span>
+              <span><span class="cs-tag">RT</span>Ritual</span>
+              <span><span class="cs-tag">T</span>Time to cast</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1556,11 +1576,11 @@
           <!-- summary strip: spell-slot grid (levels 1-5) + caster stats -->
           <div class="sp-top">
             <div class="slotgrid">
-              <div class="slot"><span class="n">1</span><span class="c">④③②①</span></div>
-              <div class="slot"><span class="n">2</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">3</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">4</span><span class="c">③②①</span></div>
-              <div class="slot"><span class="n">5</span><span class="c">②①</span></div>
+              <div class="slot"><span class="n">1</span><span class="c divc"><span>④</span><span>③</span><span>②</span><span class="nodiv">①</span></span></div>
+              <div class="slot"><span class="n">2</span><span class="c divc"><span>③</span><span>②</span><span class="nodiv">①</span></span></div>
+              <div class="slot"><span class="n">3</span><span class="c divc"><span>③</span><span>②</span><span class="nodiv">①</span></span></div>
+              <div class="slot"><span class="n">4</span><span class="c divc"><span>③</span><span>②</span><span>①</span></span></div>
+              <div class="slot"><span class="n">5</span><span class="c divc"><span>②</span><span>①</span></span></div>
             </div>
             <div class="box sk"><span class="lbl">Max Prepped</span></div>
             <div class="box"><span class="lbl">Max Lvl</span></div>
@@ -1570,6 +1590,12 @@
 
           <!-- five level bands (1-5); each = a number gutter + 4-column spell grid -->
           <div class="cs-list">
+
+            <!-- prepared/always-prepped legend -->
+            <div class="cs-legend cs-top">
+              <span><span class="cs-tag">P</span>Prepared</span>
+              <span><span class="cs-tag">Z</span>Always Prepped</span>
+            </div>
 
             <div class="cs-lvl">
               <div class="cs-num">1</div>
@@ -1582,15 +1608,15 @@
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Detect Evil and Good</span></div>
                 </div>
                 <div class="cs-col">
-                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Detect Magic</span></div>
-                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Detect Poison &amp; Disease</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Detect Magic</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Detect Poison &amp; Disease</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Divine Favor</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Divine Smite</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Heroism</span></div>
                 </div>
                 <div class="cs-col">
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Protection from Evil and Good</span></div>
-                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Purify Food and Drink</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Purify Food and Drink</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Searing Smite</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Shield of Faith</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Thunderous Smite</span></div>
@@ -1611,7 +1637,7 @@
                 <div class="cs-col">
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Aid</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Find Steed</span></div>
-                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag dual"><span>A</span><span>RT</span></span><span class="cs-name">Gentle Repose</span></div>
+                  <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">A</span><span class="cs-name">Gentle Repose</span></div>
                   <div class="cs-spell"><span class="cbx"></span><span class="cs-tag">BA</span><span class="cs-name">Lesser Restoration</span></div>
                 </div>
                 <div class="cs-col">
