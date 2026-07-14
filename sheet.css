@@ -2219,53 +2219,76 @@
   --panel: #ddd9c4;
 }
 
-/* ---- Paladin: top region (left feature block + right Lay/Level/Sense) --- */
+/* ---- Paladin row 1: Lay on Hands / LoH Pool / Weapon Masteries / Level -- */
 .sec-paladin .r1 {
   align-items: stretch;
 }
 
-.sec-paladin .leftcol {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.sec-paladin .rightcol {
-  flex: 0 0 175px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-/* row 1a: Sacred Oath / Fighting Style */
-.sec-paladin .toprow .oath {
-  flex: 0 0 188px;
-}
-
-.sec-paladin .toprow .style {
+.sec-paladin .r1 .layhands {
   flex: 1;
 }
 
-/* row 1b: [Channel Divinity over Extra Attack] + smite/aura feature checks */
-.sec-paladin .midrow {
+.sec-paladin .r1 .lohpool {
   flex: 1;
+}
+
+.sec-paladin .r1 .oath {
+  flex: 3;
+}
+
+.sec-paladin .r1 .weaponmastery {
+  flex: 5;
+}
+
+.sec-paladin .r1 .level {
+  flex: 0 0 44px;
+}
+
+/* Weapon Masteries: label floats in the corner and a soft dotted rule splits
+   the box into two write-in cells (same look as the Cleric Domain box). */
+.sec-paladin .weaponmastery>.lbl {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+.sec-paladin .weaponmastery .fc {
+  flex: 1;
+}
+
+.sec-paladin .weaponmastery .fc + .fc {
+  border-left: 1px dotted #a9a9a9;
+}
+
+/* ---- Paladin row 2: Fighting Style / Divine Smite / Channel Divinity ---- */
+.sec-paladin .r2 {
   align-items: stretch;
 }
 
-/* right-column stack: Extra Attack (1 part) over Channel Divinity (2 parts),  */
-/* filling the space under Lay on Hands / Level.                               */
-.sec-paladin .cdcol {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.sec-paladin .r2 .style {
+  flex: 5;
 }
 
-/* corner labels (Channel Divinity top-left, Divine Sense top-right, Abjure   */
-/* Foes bottom-right) with the charge circles centered in the box.            */
-.sec-paladin .cdcol .channel {
-  flex: 2 1 0;
+/* Divine Smite: centered label over a single charge circle — same box, label,
+   and circle size as the Cleric's Divine Intervention box. */
+.sec-paladin .r2 .divsmite {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  padding-bottom: 3px;
+}
+
+.sec-paladin .divsmite .circles {
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* Channel Divinity: corner labels (Channel Divinity top-left, Divine Sense    */
+/* top-right, Abjure Foes bottom-right) with the charge circles centered.      */
+.sec-paladin .r2 .channel {
+  flex: 2;
   align-items: center;
   justify-content: center;
 }
@@ -2293,59 +2316,45 @@
   letter-spacing: 1px;
 }
 
-.sec-paladin .smiteaura {
+/* ---- Paladin row 3 (holding row): Extra Attack + six feature checks ------ */
+.sec-paladin .r3 {
+  align-items: center;
+}
+
+/* the seven feature checks in a 4-column grid, filled left-to-right top-to-bottom */
+.sec-paladin .r3 .featgrid {
   flex: 1;
-  display: flex;
-  gap: 5px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px 8px;
 }
 
-.sec-paladin .smiteaura .checkcol {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sec-paladin .smiteaura .feat {
+.sec-paladin .r3 .feat {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 7.5px;
-}
-
-/* Extra Attack: a bare checkbox + label (no box border/tint) above the CD box */
-.sec-paladin .cdcol .attacks {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 4px;
   font-size: 7.5px;
-  white-space: nowrap;
 }
 
-/* right column: Lay on Hands + Lay on Hands Pool + Level, then the CD stack */
-.sec-paladin .rtop .layhands {
-  flex: 1;
-}
-
-.sec-paladin .rtop .lohpool {
-  flex: 1;
-}
-
-.sec-paladin .rtop .level {
-  flex: 0 0 44px;
-}
-
-.sec-paladin .weaponmastery {
-  flex: 0 0 150px;
-}
-
-/* ---- Paladin: Oath Features full-width row ------------------------------ */
-.sec-paladin .r2 .oathfeat {
+/* ---- Paladin: Oath Features full-width row — the box is split into four    */
+/* write-in cells by soft dotted rules (same look as the Cleric Domain box).   */
+.sec-paladin .rfeat .oathfeat {
   flex: 1;
   min-height: 28px;
+}
+
+.sec-paladin .rfeat .oathfeat>.lbl {
+  position: absolute;
+  top: 3px;
+  left: 4px;
+}
+
+.sec-paladin .rfeat .oathfeat .fc {
+  flex: 1;
+}
+
+.sec-paladin .rfeat .oathfeat .fc + .fc {
+  border-left: 1px dotted #a9a9a9;
 }
 
 /* ---- Paladin: bottom grid (rows 4 + 5) — same shape as the Bard panel --- */
