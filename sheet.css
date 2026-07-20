@@ -1446,6 +1446,46 @@
   flex: 1;
 }
 
+/* Armor/weapon proficiency box: label on top, the five abbreviations spread
+   evenly across the remaining height. */
+.sec-cleric .colA .prof {
+  flex-direction: column;
+}
+
+/* header row: section label left, "(Circle)" hint right (the .lbl needs its own
+   sizing here since .box>.lbl only matches direct children) */
+.sec-cleric .colA .prof .pf-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.sec-cleric .colA .prof .pf-head .lbl {
+  font-size: 6.5px;
+  color: var(--lbl);
+  line-height: 1;
+}
+
+.sec-cleric .colA .prof .pf-head .pf-circle {
+  font-size: 5.5px;
+}
+
+.sec-cleric .colA .prof .pf-row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+
+/* sixth slot: a blank rule to write in another proficiency */
+.sec-cleric .colA .prof .pf-blank {
+  width: 20px;
+  align-self: center;
+  margin-top: 6px;
+}
+
 .sec-cleric .tall {
   flex-direction: column;
   justify-content: space-between;
@@ -1743,10 +1783,12 @@
 .sec-cleric-cantrips .cs-legend .cs-tag,
 .sec-paladin-cantrips .cs-legend .cs-tag {
   flex: 0 0 13px;
-  height: 9px;
+  /* Size to the glyph instead of pinning a 9px height: a fixed height printed
+     with the letter jammed against the top border. */
+  height: auto;
+  padding: 0.5px 0;
   border-left: 1px solid var(--ink);
   justify-content: center;
-  padding-right: 0;
 }
 
 /* prepared/always-prepped key sitting atop the first band */
@@ -2564,10 +2606,12 @@
 
 .sec-paladin-spells .cs-legend .cs-tag {
   flex: 0 0 13px;
-  height: 9px;
+  /* Size to the glyph instead of pinning a 9px height: a fixed height printed
+     with the letter jammed against the top border. */
+  height: auto;
+  padding: 0.5px 0;
   border-left: 1px solid var(--ink);
   justify-content: center;
-  padding-right: 0;
 }
 
 /* ==== ROGUE SHEET — pages 23–25. Page 23 reuses the shared sections           */
@@ -3029,10 +3073,12 @@
 
 .sec-sorcerer-spells .cs-legend .cs-tag {
   flex: 0 0 13px;
-  height: 9px;
+  /* Size to the glyph instead of pinning a 9px height: a fixed height printed
+     with the letter jammed against the top border. */
+  height: auto;
+  padding: 0.5px 0;
   border-left: 1px solid var(--ink);
   justify-content: center;
-  padding-right: 0;
 }
 
 /* ==== WARLOCK SHEET — pages 29-31. Page 29 reuses the shared sections    */
